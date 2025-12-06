@@ -1,7 +1,4 @@
-import {
-  ArrowBigRightDash,
-  ExternalLink,
-} from "lucide-react";
+import { ArrowBigRightDash, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 type NewsItem = {
