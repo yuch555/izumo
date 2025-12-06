@@ -1,0 +1,45 @@
+{
+  "items": [
+    {
+      "id": "news_001",
+      "title": "年末年始の市役所業務について",
+      "description": "12月29日から1月3日まで市役所は休業となります。",
+      "link": "https://www.city.izumo.shimane.jp/",
+      "pubDate": "2025-12-01T10:00:00Z",
+      "category": "お知らせ"
+    },
+    {
+      "id": "news_002",
+      "title": "出雲市冬のイベント情報",
+      "description": "12月開催のイベント情報をお知らせします。",
+      "link": "https://www.city.izumo.shimane.jp/",
+      "pubDate": "2025-11-28T14:00:00Z",
+      "category": "イベント"
+    },
+    {
+      "id": "news_003",
+      "title": "インフルエンザ予防接種のお知らせ",
+      "description": "高齢者向けインフルエンザ予防接種について。",
+      "link": "https://www.city.izumo.shimane.jp/",
+      "pubDate": "2025-11-25T09:00:00Z",
+      "category": "健康・福祉"
+    },
+    {
+      "id": "news_004",
+      "title": "出雲市プレミアム商品券販売開始",
+      "description": "地域経済活性化のためのプレミアム商品券を販売します。",
+      "link": "https://www.city.izumo.shimane.jp/",
+      "pubDate": "2025-11-20T11:00:00Z",
+      "category": "経済"
+    },
+    {
+      "id": "news_005",
+      "title": "図書館の新着図書情報",
+      "description": "12月の新着図書をご案内します。",
+      "link": "https://www.city.izumo.shimane.jp/",
+      "pubDate": "2025-11-15T10:00:00Z",
+      "category": "文化・教育"
+    }
+  ],
+  "lastUpdated": "2025-12-06T00:00:00Z"
+}

@@ -1,0 +1,93 @@
+{
+  "shelters": [
+    {
+      "id": "shelter_001",
+      "name": "出雲市役所",
+      "address": "島根県出雲市今市町70",
+      "latitude": 35.3628,
+      "longitude": 132.755,
+      "capacity": 500,
+      "type": "指定避難所"
+    },
+    {
+      "id": "shelter_002",
+      "name": "出雲市民会館",
+      "address": "島根県出雲市今市町1800",
+      "latitude": 35.358,
+      "longitude": 132.759,
+      "capacity": 300,
+      "type": "指定避難所"
+    },
+    {
+      "id": "shelter_003",
+      "name": "今市小学校",
+      "address": "島根県出雲市今市町1700",
+      "latitude": 35.36,
+      "longitude": 132.756,
+      "capacity": 800,
+      "type": "指定避難所"
+    }
+  ],
+  "aeds": [
+    {
+      "id": "aed_001",
+      "name": "出雲市役所",
+      "address": "島根県出雲市今市町70",
+      "latitude": 35.3628,
+      "longitude": 132.755,
+      "location": "1階ロビー",
+      "availability": "24時間"
+    },
+    {
+      "id": "aed_002",
+      "name": "出雲駅",
+      "address": "島根県出雲市駅北町5",
+      "latitude": 35.358,
+      "longitude": 132.769,
+      "location": "改札口付近",
+      "availability": "24時間"
+    },
+    {
+      "id": "aed_003",
+      "name": "ゆめタウン出雲",
+      "address": "島根県出雲市大塚町650-1",
+      "latitude": 35.372,
+      "longitude": 132.772,
+      "location": "1階サービスカウンター",
+      "availability": "営業時間内"
+    }
+  ],
+  "publicFacilities": [
+    {
+      "id": "facility_001",
+      "name": "出雲中央図書館",
+      "category": "図書館",
+      "address": "島根県出雲市今市町1800",
+      "latitude": 35.358,
+      "longitude": 132.759,
+      "phone": "0853-21-0487",
+      "openingHours": "9:00-19:00"
+    },
+    {
+      "id": "facility_002",
+      "name": "出雲市体育館",
+      "category": "体育館",
+      "address": "島根県出雲市今市町1900",
+      "latitude": 35.361,
+      "longitude": 132.758,
+      "phone": "0853-21-1930",
+      "openingHours": "9:00-21:00"
+    },
+    {
+      "id": "facility_003",
+      "name": "出雲市民交流センター",
+      "category": "公民館",
+      "address": "島根県出雲市今市町1850",
+      "latitude": 35.3595,
+      "longitude": 132.7585,
+      "phone": "0853-21-2211",
+      "openingHours": "9:00-22:00"
+    }
+  ],
+  "lastUpdated": "2025-12-06T00:00:00Z"
+}
