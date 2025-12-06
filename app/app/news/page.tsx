@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NewsSearch } from "@/src/components/features/NewsSearch";
+import { NewsSearch } from "../../src/components/features/NewsSearch";
 import { ArrowBigLeftIcon } from "lucide-react";
 
 type NewsItem = {

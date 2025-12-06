@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { XMLParser } from 'fast-xml-parser';
-import { NewsResponseSchema, type NewsItem } from '@/src/features/news/schemas';
+import { NewsResponseSchema, type NewsItem } from '../../../src/features/news/schemas';
 
 // 出雲市の公式RSSフィードURL
 const RSS_FEEDS = {
