@@ -2,8 +2,8 @@
   "aeds": [
     {
       "id": "aed_001",
-      "name": "出雲市役所",
-      "address": "島根県出雲市今市町70",
+      "name": "役所",
+      "address": "島根県今市町70",
       "latitude": 35.3628,
       "longitude": 132.755,
       "location": "1階ロビー",
@@ -12,7 +12,7 @@
     {
       "id": "aed_002",
       "name": "出雲駅",
-      "address": "島根県出雲市駅北町5",
+      "address": "島根県駅北町5",
       "latitude": 35.358,
       "longitude": 132.769,
       "location": "改札口付近",
@@ -21,7 +21,7 @@
     {
       "id": "aed_003",
       "name": "ゆめタウン出雲",
-      "address": "島根県出雲市大塚町650-1",
+      "address": "島根県大塚町650-1",
       "latitude": 35.372,
       "longitude": 132.772,
       "location": "1階サービスカウンター",

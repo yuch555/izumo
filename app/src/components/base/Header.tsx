@@ -11,7 +11,7 @@ export const Header = () => {
             href="/"
             className="text-xl font-bold text-gray-900 hover:text-blue-600"
           >
-            出雲市お役立ちWEBサイト
+            お役立ちWEBサイト
           </Link>
         </div>
       </div>

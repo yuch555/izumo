@@ -1,4 +1,4 @@
-// 広報いずも/新着お知らせの型定義
+// いずも/新着お知らせの型定義
 
 export type NewsItem = {
   id: string;

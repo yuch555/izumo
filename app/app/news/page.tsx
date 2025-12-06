@@ -12,7 +12,7 @@ type NewsItem = {
   category?: string;
 };
 
-// 出雲市の公式RSSフィードURL
+// の公式RSSフィードURL
 const RSS_FEEDS = {
   emergency: "https://www.city.izumo.shimane.jp/www/rss/kinkyu.rdf",
   topics: "https://www.city.izumo.shimane.jp/www/rss/topics.rdf",
@@ -116,7 +116,7 @@ export default async function NewsPage() {
           </Link>
         </div>
 
-        <h1 className="text-4xl font-bold my-2">広報・お知らせ</h1>
+        <h1 className="text-4xl font-bold my-2">お知らせ</h1>
 
         <NewsSearch newsItems={newsItems} />
       </div>

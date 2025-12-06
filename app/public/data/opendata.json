@@ -2,8 +2,8 @@
   "shelters": [
     {
       "id": "shelter_001",
-      "name": "出雲市役所",
-      "address": "島根県出雲市今市町70",
+      "name": "役所",
+      "address": "島根県今市町70",
       "latitude": 35.3628,
       "longitude": 132.755,
       "capacity": 500,
@@ -11,8 +11,8 @@
     },
     {
       "id": "shelter_002",
-      "name": "出雲市民会館",
-      "address": "島根県出雲市今市町1800",
+      "name": "民会館",
+      "address": "島根県今市町1800",
       "latitude": 35.358,
       "longitude": 132.759,
       "capacity": 300,
@@ -21,7 +21,7 @@
     {
       "id": "shelter_003",
       "name": "今市小学校",
-      "address": "島根県出雲市今市町1700",
+      "address": "島根県今市町1700",
       "latitude": 35.36,
       "longitude": 132.756,
       "capacity": 800,
@@ -31,8 +31,8 @@
   "aeds": [
     {
       "id": "aed_001",
-      "name": "出雲市役所",
-      "address": "島根県出雲市今市町70",
+      "name": "役所",
+      "address": "島根県今市町70",
       "latitude": 35.3628,
       "longitude": 132.755,
       "location": "1階ロビー",
@@ -41,7 +41,7 @@
     {
       "id": "aed_002",
       "name": "出雲駅",
-      "address": "島根県出雲市駅北町5",
+      "address": "島根県駅北町5",
       "latitude": 35.358,
       "longitude": 132.769,
       "location": "改札口付近",
@@ -50,7 +50,7 @@
     {
       "id": "aed_003",
       "name": "ゆめタウン出雲",
-      "address": "島根県出雲市大塚町650-1",
+      "address": "島根県大塚町650-1",
       "latitude": 35.372,
       "longitude": 132.772,
       "location": "1階サービスカウンター",
@@ -62,7 +62,7 @@
       "id": "facility_001",
       "name": "出雲中央図書館",
       "category": "図書館",
-      "address": "島根県出雲市今市町1800",
+      "address": "島根県今市町1800",
       "latitude": 35.358,
       "longitude": 132.759,
       "phone": "0853-21-0487",
@@ -70,9 +70,9 @@
     },
     {
       "id": "facility_002",
-      "name": "出雲市体育館",
+      "name": "体育館",
       "category": "体育館",
-      "address": "島根県出雲市今市町1900",
+      "address": "島根県今市町1900",
       "latitude": 35.361,
       "longitude": 132.758,
       "phone": "0853-21-1930",
@@ -80,9 +80,9 @@
     },
     {
       "id": "facility_003",
-      "name": "出雲市民交流センター",
+      "name": "民交流センター",
       "category": "公民館",
-      "address": "島根県出雲市今市町1850",
+      "address": "島根県今市町1850",
       "latitude": 35.3595,
       "longitude": 132.7585,
       "phone": "0853-21-2211",

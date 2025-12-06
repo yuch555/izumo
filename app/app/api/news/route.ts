@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { XMLParser } from 'fast-xml-parser';
 import { NewsResponseSchema, type NewsItem } from '../../../src/features/news/schemas';
 
-// 出雲市の公式RSSフィードURL
+// の公式RSSフィードURL
 const RSS_FEEDS = {
   emergency: 'https://www.city.izumo.shimane.jp/www/rss/kinkyu.rdf', // 災害・緊急情報
   topics: 'https://www.city.izumo.shimane.jp/www/rss/topics.rdf',    // 注目情報

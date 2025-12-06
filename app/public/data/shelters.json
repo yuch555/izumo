@@ -2,8 +2,8 @@
   "shelters": [
     {
       "id": "shelter_001",
-      "name": "出雲市役所",
-      "address": "島根県出雲市今市町70",
+      "name": "役所",
+      "address": "島根県今市町70",
       "latitude": 35.3628,
       "longitude": 132.755,
       "capacity": 500,
@@ -11,8 +11,8 @@
     },
     {
       "id": "shelter_002",
-      "name": "出雲市民会館",
-      "address": "島根県出雲市今市町1800",
+      "name": "民会館",
+      "address": "島根県今市町1800",
       "latitude": 35.358,
       "longitude": 132.759,
       "capacity": 300,
@@ -21,7 +21,7 @@
     {
       "id": "shelter_003",
       "name": "今市小学校",
-      "address": "島根県出雲市今市町1700",
+      "address": "島根県今市町1700",
       "latitude": 35.36,
       "longitude": 132.756,
       "capacity": 800,
