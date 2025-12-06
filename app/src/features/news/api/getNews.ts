@@ -1,8 +1,11 @@
 import type { NewsResponse } from '../types';
 
-// ローカルJSONからニュースデータを取得
+// APIルートからニュースデータを取得（RSSまたはローカルJSON）
 export async function getNews(): Promise<NewsResponse> {
-  const response = await fetch('/data/news.json');
+  const response = await fetch('/api/news', {
+    next: { revalidate: 300 }, // 5分間キャッシュ
+  });
+  
   if (!response.ok) {
     throw new Error('Failed to fetch news');
   }
