@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Github } from "lucide-react";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,8 +14,18 @@ export const Footer = () => {
               出雲市からのお知らせをお届けします
             </p>
           </div>
-
           <div className="flex flex-col items-center md:items-end gap-2">
+            <Link
+              href="https://github.com/yuch555/izumo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              <Github size={20} />
+              <span className="text-sm font-medium">
+                Built by yuch555 • Open Source
+              </span>
+            </Link>
             <p className="text-sm text-gray-500">
               &copy; {currentYear} 出雲市. All rights reserved.
             </p>
