@@ -1,5 +1,4 @@
 import {
-  ArrowBigDownDash,
   ArrowBigRightDash,
   ExternalLink,
 } from "lucide-react";
