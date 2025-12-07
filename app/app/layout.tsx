@@ -4,8 +4,17 @@ import { Header } from "../src/components/base/Header";
 import { Footer } from "../src/components/base/Footer";
 
 export const metadata: Metadata = {
-  title: "Izumo App",
-  description: "Created with Next.js",
+  title: "出雲市お役立ちWEBサイト",
+  description:
+    "出雲市のゴミ分別検索、リサイクルステーション検索、お知らせ情報など、生活に役立つ情報をまとめたサイトです。",
+  keywords: ["出雲市", "ゴミ分別", "リサイクル", "お知らせ", "便利ツール"],
+  openGraph: {
+    title: "出雲市お役立ちWEBサイト",
+    description:
+      "出雲市のゴミ分別検索、リサイクルステーション検索、お知らせ情報など",
+    type: "website",
+    locale: "ja_JP",
+  },
 };
 
 export default function RootLayout({
