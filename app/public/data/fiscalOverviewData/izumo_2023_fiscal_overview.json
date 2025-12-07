@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "year": "令和5年度",
+    "municipality": "出雲市",
+    "prefecture": "島根県"
+  },
+  "population": {
+    "census_2020": 172775,
+    "census_2015": 171938,
+    "census_growth_rate_percent": 0.5,
+    "basic_residents_2024_01_01": 172607,
+    "basic_residents_2024_01_01_japanese": 168170,
+    "basic_residents_2023_01_01": 173835,
+    "basic_residents_2023_01_01_japanese": 169165,
+    "basic_residents_growth_rate_percent": -0.7,
+    "area_km2": 624.32,
+    "density_per_km2": 277,
+    "households": 64408
+  },
+  "finance": {
+    "revenue_total": 97661232,
+    "expenditure_total": 95322424,
+    "balance": 2338808,
+    "carryover": 977413,
+    "real_balance": 1361395,
+    "single_year_balance": -160631,
+    "standard_financial_size": 46220578,
+    "financial_power_index": 0.56,
+    "real_expenditure_ratio_percent": 84.3,
+    "public_debt_ratio_percent": 15.7,
+    "funds": {
+      "savings": 568,
+      "early_redemption": 13534,
+      "fund_drawdown": 0
+    },
+    "local_bonds": {
+      "balance": 96492639,
+      "public_funds": 82233373,
+      "excluding_temp_finance_bonds": 70285098
+    },
+    "future_burden_ratio": 160.1,
+    "general_revenue": 55889528,
+    "ordinary_expense_revenue": 40402167
+  },
+  "indices": {
+    "real_balance_ratio_percent": 2.9,
+    "real_single_year_balance": -146529,
+    "real_debt_service_ratio_percent": 12.3
+  },
+  "standard_fiscal_data": {
+    "fiscal_revenue": 22983033,
+    "fiscal_need": 40003196,
+    "standard_tax_revenue": 28852674
+  },
+  "personnel": {
+    "executives": {
+      "mayor": { "count": 1, "salary_100yen": 8487 },
+      "vice_mayor": { "count": 2, "salary_100yen": 7198 },
+      "education_superintendent": { "count": 1, "salary_100yen": 6289 },
+      "council_chair": { "count": 1, "salary_100yen": 5500 },
+      "council_vice_chair": { "count": 1, "salary_100yen": 4760 },
+      "council_member": { "count": 28, "salary_100yen": 4400 }
+    },
+    "general_staff": {
+      "staff": {
+        "count": 1110,
+        "salary_total_100yen": 3645240,
+        "salary_avg_100yen": 3284
+      },
+      "firefighters": {
+        "count": 217,
+        "salary_total_100yen": 675955,
+        "salary_avg_100yen": 3115
+      },
+      "teachers": {
+        "count": 101,
+        "salary_total_100yen": 320339,
+        "salary_avg_100yen": 3172
+      },
+      "total": {
+        "count": 1211,
+        "salary_total_100yen": 3965579,
+        "salary_avg_100yen": 3275
+      },
+      "laspeyres_index": 98.6
+    }
+  },
+  "fund_balances": {
+    "fiscal_adjustment_fund": 2779648,
+    "debt_reduction_fund": 3214975,
+    "other_purpose_funds": 5066819
+  }
+}

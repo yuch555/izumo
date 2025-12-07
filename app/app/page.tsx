@@ -1,7 +1,8 @@
-import { Trash2, Newspaper, Recycle } from "lucide-react";
+import { Trash2, Newspaper, Recycle, Building2 } from "lucide-react";
 import Link from "next/link";
 import { getAllNews } from "../lib/news";
 import { PopulationStats } from "../src/components/features/PopulationStats";
+import { FiscalStats } from "../src/components/features/FiscalStats";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;
@@ -92,11 +93,34 @@ export default async function Home() {
               出雲市からの最新のお知らせや重要な情報を確認できます。カテゴリー別に検索も可能です。
             </p>
           </Link>
+
+          <Link
+            href="/fiscal"
+            className="bg-gradient-to-br from-emerald-50 to-emerald-100 border-2 border-emerald-200 rounded-xl p-8 hover:shadow-xl hover:scale-[1.02] transition-all group"
+          >
+            <div className="flex items-center mb-4">
+              <div className="bg-emerald-500 p-3 rounded-full mr-4 group-hover:rotate-12 transition-transform">
+                <Building2 size={32} className="text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800">財政状況</h2>
+                <p className="text-gray-600">予算・決算を可視化</p>
+              </div>
+            </div>
+            <p className="text-gray-700">
+              出雲市の財政状況を分かりやすくグラフで表示。歳入歳出、基金残高、職員数などを確認できます。
+            </p>
+          </Link>
         </section>
 
         {/* 住民統計セクション */}
         <section className="mb-12">
           <PopulationStats />
+        </section>
+
+        {/* 財政状況セクション */}
+        <section className="mb-12">
+          <FiscalStats />
         </section>
       </div>
     </main>
