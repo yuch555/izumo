@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { BackToHome } from "../../src/components/base/BackToHome";
 
 export default function MapPage() {
   return (

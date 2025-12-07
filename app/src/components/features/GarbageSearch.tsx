@@ -8,6 +8,7 @@ import {
   AlertCircle,
   BanIcon,
   Package,
+  Lightbulb,
 } from "lucide-react";
 import type { GarbageItem } from "../../../lib/garbage";
 import { garbageCategories } from "../../../lib/garbage";
@@ -74,10 +75,10 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
   return (
     <div className="space-y-6">
       {/* 検索バー */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
         <div className="relative">
           <Search
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
             size={20}
           />
           <input
@@ -85,26 +86,28 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
             placeholder="品目名を入力してください（例：ペットボトル、テレビ、新聞紙）"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all text-base placeholder:text-gray-400"
           />
         </div>
       </div>
 
       {/* カテゴリーフィルター */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
         <div className="flex items-center mb-4">
-          <Filter className="mr-2 text-gray-600" size={20} />
+          <div className="p-2 bg-green-50 rounded-lg mr-3">
+            <Filter className="text-green-600" size={20} />
+          </div>
           <h2 className="text-lg font-semibold text-gray-800">
             分別区分で絞り込み
           </h2>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-3">
           <button
             onClick={() => setSelectedCategory("すべて")}
-            className={`px-4 py-2 rounded-full transition-all ${
+            className={`px-5 py-2.5 rounded-full transition-all font-medium shadow-sm ${
               selectedCategory === "すべて"
-                ? "bg-green-600 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                ? "bg-green-600 text-white shadow-green-200 hover:bg-green-700"
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md"
             }`}
           >
             すべて
@@ -114,10 +117,10 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full transition-all ${
+                className={`px-5 py-2.5 rounded-full transition-all font-medium shadow-sm ${
                   selectedCategory === category
-                    ? "bg-green-600 text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                    ? "bg-green-600 text-white shadow-green-200 hover:bg-green-700"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md"
                 }`}
               >
                 {category}
@@ -132,20 +135,20 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
                   : "リサイクル"
               )
             }
-            className={`px-4 py-2 rounded-full transition-all ${
+            className={`px-5 py-2.5 rounded-full transition-all font-medium shadow-sm ${
               selectedCategory?.includes("リサイクル")
-                ? "bg-green-600 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                ? "bg-green-600 text-white shadow-green-200 hover:bg-green-700"
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md"
             }`}
           >
             リサイクル
           </button>
           <button
             onClick={() => setSelectedCategory("禁止")}
-            className={`px-4 py-2 rounded-full transition-all ${
+            className={`px-5 py-2.5 rounded-full transition-all font-medium shadow-sm ${
               selectedCategory === "禁止"
-                ? "bg-red-600 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                ? "bg-red-600 text-white shadow-red-200 hover:bg-red-700"
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md"
             }`}
           >
             市で収集不可
@@ -166,9 +169,9 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
       {/* 検索結果一覧 */}
       <div className="grid gap-4">
         {filteredItems.length === 0 ? (
-          <div className="bg-white p-12 rounded-lg shadow-md text-center">
+          <div className="bg-white p-12 rounded-xl shadow-lg border border-gray-100 text-center">
             <AlertCircle className="mx-auto mb-4 text-gray-400" size={48} />
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 text-lg font-medium">
               該当する品目が見つかりませんでした。
             </p>
             <p className="text-gray-500 text-sm mt-2">
@@ -179,7 +182,7 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
           filteredItems.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200"
+              className="bg-white p-4 md:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all border border-gray-100 hover:border-green-200"
             >
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
                 <div className="flex items-center gap-3 min-w-0 flex-1">
@@ -202,8 +205,9 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
               </div>
               {item.howTo && (
                 <div className="mt-3 p-3 md:p-4 bg-gray-50 rounded-lg border-l-4 border-green-500">
-                  <p className="text-xs md:text-sm font-semibold text-gray-700 mb-1">
-                    💡 出し方のポイント
+                  <p className="text-xs md:text-sm font-semibold text-gray-700 mb-1 flex items-center gap-2">
+                    <Lightbulb size={16} className="text-yellow-600" />
+                    出し方のポイント
                   </p>
                   <p className="text-sm md:text-base text-gray-700 break-words">
                     {item.howTo}

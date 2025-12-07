@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { RecyclingMap } from "@/components/features/RecyclingMap";
-import { ArrowBigLeftIcon, Recycle, FileText, Milk, Beef } from "lucide-react";
+import { Recycle, FileText, Milk, Beef } from "lucide-react";
 import { getAllRecyclingStores } from "../../lib/recycling";
+import { BackToHome } from "../../src/components/base/BackToHome";
 
 export const metadata = {
   title: "リサイクルステーション検索 | 出雲市",
@@ -14,15 +14,7 @@ export default function RecyclingPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <div className="max-w-7xl mx-auto p-4 md:p-8">
-        <div className="mb-6">
-          <Link
-            href="/"
-            className="text-blue-600 hover:text-blue-700 transition-colors"
-          >
-            <ArrowBigLeftIcon size={16} className="inline-block mr-1" />
-            ホームに戻る
-          </Link>
-        </div>
+        <BackToHome />
 
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 flex items-center gap-3">

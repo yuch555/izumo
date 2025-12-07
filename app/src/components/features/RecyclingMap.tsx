@@ -6,6 +6,13 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import MapboxLanguage from "@mapbox/mapbox-gl-language";
 import { Recycle, FileText, Milk, Beef, MapPin } from "lucide-react";
 import type { RecyclingStore } from "../../../lib/recycling";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 // Mapbox access token - 環境変数から取得
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || "";
@@ -89,34 +96,36 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
           <label className="block text-sm font-medium text-gray-700 mb-2">
             地域で絞り込み
           </label>
-          <select
-            value={selectedRegion}
-            onChange={(e) => setSelectedRegion(e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          >
-            <option value="all">すべての地域</option>
-            {regions.slice(1).map((region) => (
-              <option key={region} value={region}>
-                {region}
-              </option>
-            ))}
-          </select>
+          <Select value={selectedRegion} onValueChange={setSelectedRegion}>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="すべての地域" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">すべての地域</SelectItem>
+              {regions.slice(1).map((region) => (
+                <SelectItem key={region} value={region}>
+                  {region}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         <div className="flex-1">
           <label className="block text-sm font-medium text-gray-700 mb-2">
             品目で絞り込み
           </label>
-          <select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          >
-            <option value="all">すべての品目</option>
-            <option value="paper">紙類</option>
-            <option value="plastic">プラスチック</option>
-            <option value="cans_bottles">缶・びん</option>
-          </select>
+          <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="すべての品目" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">すべての品目</SelectItem>
+              <SelectItem value="paper">紙類</SelectItem>
+              <SelectItem value="plastic">プラスチック</SelectItem>
+              <SelectItem value="cans_bottles">缶・びん</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
