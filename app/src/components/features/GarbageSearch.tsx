@@ -172,30 +172,35 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
           filteredItems.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200"
+              className="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200"
             >
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
+                <div className="flex items-center gap-3 min-w-0 flex-1">
                   <Trash2 className="text-gray-400 flex-shrink-0" size={24} />
-                  <h3 className="text-xl font-bold text-gray-800">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-800 break-words">
                     {item.name}
                   </h3>
                 </div>
                 <span
-                  className={`px-4 py-2 rounded-full text-sm font-semibold border flex items-center gap-2 whitespace-nowrap ${getCategoryColor(
+                  className={`px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-semibold border flex items-center gap-2 whitespace-nowrap self-start ${getCategoryColor(
                     item.category
                   )}`}
                 >
                   <span>{getCategoryIcon(item.category)}</span>
-                  {item.category}
+                  <span className="hidden sm:inline">{item.category}</span>
+                  <span className="sm:hidden">
+                    {item.category.replace(/（リサイクル）/g, "")}
+                  </span>
                 </span>
               </div>
               {item.howTo && (
-                <div className="mt-3 p-4 bg-gray-50 rounded-lg border-l-4 border-green-500">
-                  <p className="text-sm font-semibold text-gray-700 mb-1">
+                <div className="mt-3 p-3 md:p-4 bg-gray-50 rounded-lg border-l-4 border-green-500">
+                  <p className="text-xs md:text-sm font-semibold text-gray-700 mb-1">
                     💡 出し方のポイント
                   </p>
-                  <p className="text-gray-700">{item.howTo}</p>
+                  <p className="text-sm md:text-base text-gray-700 break-words">
+                    {item.howTo}
+                  </p>
                 </div>
               )}
             </div>
