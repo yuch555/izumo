@@ -1,40 +1,13 @@
 import Link from "next/link";
 import { NewsSearch } from "../../src/components/features/NewsSearch";
 import { ArrowBigLeftIcon } from "lucide-react";
+import { getAllNews } from "../../lib/news";
 
-type NewsItem = {
-  id: string;
-  title: string;
-  description: string;
-  link: string;
-  pubDate: string;
-  category?: string;
-};
-
-async function getNews(): Promise<NewsItem[]> {
-  try {
-    // RSS APIから取得（5分間キャッシュ）
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/news`,
-      {
-        next: { revalidate: 300 },
-      }
-    );
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch news");
-    }
-
-    const data = await res.json();
-    return data.items;
-  } catch (error) {
-    console.error("ニュース取得エラー:", error);
-    return [];
-  }
-}
+// ISR: 1時間ごとに再生成
+export const revalidate = 3600;
 
 export default async function NewsPage() {
-  const newsItems = await getNews();
+  const newsItems = await getAllNews();
 
   return (
     <main className="min-h-screen p-8">

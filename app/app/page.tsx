@@ -1,34 +1,13 @@
 import { ArrowBigRightDash, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { getAllNews } from "../lib/news";
 
-type NewsItem = {
-  id: string;
-  title: string;
-  description: string;
-  link: string;
-  pubDate: string;
-  category: string;
-};
+// ISR: 1時間ごとに再生成
+export const revalidate = 3600;
 
-async function getLatestNews(): Promise<NewsItem[]> {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/news`,
-      {
-        next: { revalidate: 300 },
-      }
-    );
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch news");
-    }
-
-    const data = await res.json();
-    return data.items.slice(0, 5); // 最新5件
-  } catch (error) {
-    console.error("ニュース取得エラー:", error);
-    return [];
-  }
+async function getLatestNews() {
+  const allNews = await getAllNews();
+  return allNews.slice(0, 5); // 最新5件
 }
 
 export default async function Home() {
