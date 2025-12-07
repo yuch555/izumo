@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  ExternalLink,
-  Search,
-  Calendar as CalendarIcon,
-  X,
-} from "lucide-react";
+import { Search, Calendar as CalendarIcon, X } from "lucide-react";
 import Link from "next/link";
 import { useState, useMemo } from "react";
 
@@ -193,13 +188,6 @@ export function NewsSearch({ newsItems }: NewsSearchProps) {
               <p className="text-gray-700 mb-2 line-clamp-2">
                 {item.description}
               </p>
-              <div className="flex items-center gap-1 text-blue-600">
-                <span className="group-hover:underline">サイトを見る</span>
-                <ExternalLink
-                  size={16}
-                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                />
-              </div>
             </Link>
           ))
         )}
