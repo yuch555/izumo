@@ -117,11 +117,6 @@ export default async function Home() {
         <section className="mb-12">
           <PopulationStats />
         </section>
-
-        {/* 財政状況セクション */}
-        <section className="mb-12">
-          <FiscalStats />
-        </section>
       </div>
     </main>
   );
