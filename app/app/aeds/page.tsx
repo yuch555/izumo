@@ -24,11 +24,7 @@ export default async function AEDsPage() {
   return (
     <main className="min-h-screen p-8">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-6">
-          <Link href="/" className="text-blue-600 hover:underline">
-            ← ホームに戻る
-          </Link>
-        </div>
+        <div className="mb-6"></div>
 
         <h1 className="text-4xl font-bold mb-8">❤️ AED設置場所</h1>
 
