@@ -25,14 +25,16 @@ function MapLanguageControl() {
   const { current: map } = useMap();
 
   useEffect(() => {
-    if (map) {
-      const language = new MapboxLanguage({ defaultLanguage: "ja" });
-      map.addControl(language);
+    if (!map) return;
 
-      return () => {
+    const language = new MapboxLanguage({ defaultLanguage: "ja" });
+    map.addControl(language);
+
+    return () => {
+      if (map && map.hasControl(language)) {
         map.removeControl(language);
-      };
-    }
+      }
+    };
   }, [map]);
 
   return null;
