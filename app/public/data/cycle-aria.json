@@ -1,0 +1,545 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.738865,
+          35.367631
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "イオンスタイル出雲",
+        "address_partial": "島根県出雲市渡橋町1066",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.748578,
+          35.378904
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "グッディー医大通店",
+        "address_partial": "島根県出雲市塩冶町2125-1",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶, リターナブルびん"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.766358,
+          35.385559
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "グッディー北部店",
+        "address_partial": "〒693-0015 島根県出雲市大津朝倉１丁目６−６",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶, リターナブルびん"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.746550,
+          35.379928
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "食の専門市場 あんり",
+        "address_partial": "島根県出雲市渡橋町1290",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器",
+        "recycling_cans_bottles": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.749155,
+          35.359234
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "SUPER CENTER PLANT 出雲店",
+        "address_partial": "島根県出雲市大津町250-1",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.768789,
+          35.362624
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "生鮮食品おだ出雲店",
+        "address_partial": "島根県出雲市矢野町864-1",
+        "recycling_paper": "ダンボール, 牛乳パック",
+        "recycling_plastic": "白色トレイ",
+        "recycling_cans_bottles": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.748578,
+          35.378904
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "フーズマーケットホック塩冶店",
+        "address_partial": "島根県出雲市塩冶町1200",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ",
+        "recycling_cans_bottles": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.730101,
+          35.340030
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "藤増ストアー古志店",
+        "address_partial": "島根県出雲市古志町1052",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ",
+        "recycling_cans_bottles": "リターナブルびん"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.719285,
+          35.334410
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "藤増ストアー知井宮店",
+        "address_partial": "島根県出雲市知井宮町342",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ",
+        "recycling_cans_bottles": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.764511,
+          35.367204
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "マックスバリュ今市店",
+        "address_partial": "島根県出雲市今市町字半ケ沢１３９－１",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.742308,
+          35.385317
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "マックスバリュ川跡店",
+        "address_partial": "島根県出雲市稲岡町３７",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.754889,
+          35.377278
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "ゆめタウン出雲店",
+        "address_partial": "島根県出雲市大塚町650-1",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶, リターナブルびん"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.702730,
+          35.337346
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "ゆめマート神西",
+        "address_partial": "島根県出雲市大島町２４－１",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶, リターナブルびん"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.725732,
+          35.365928
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "ラピタはまやま店",
+        "address_partial": "島根県出雲市松寄下町1150-1",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶, リターナブルびん"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.753775,
+          35.368346
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "ラピタ本店",
+        "address_partial": "島根県出雲市今市町1275",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル（キャップも回収）",
+        "recycling_cans_bottles": "スチール缶, アルミ缶"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.757647,
+          35.355182
+        ]
+      },
+      "properties": {
+        "region": "出雲",
+        "store_name": "ラピタみなみ店",
+        "address_partial": "島根県出雲市塩冶町990",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶, リターナブルびん"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.825918,
+          35.435102
+        ]
+      },
+      "properties": {
+        "region": "平田",
+        "store_name": "グッディー平田店",
+        "address_partial": "島根県出雲市平田町２３９０",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶, リターナブルびん"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.825608,
+          35.437152
+        ]
+      },
+      "properties": {
+        "region": "平田",
+        "store_name": "フーズマーケットホック平田店",
+        "address_partial": "島根県出雲市平田町1836-1 (閉業店舗の座標)",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ",
+        "recycling_cans_bottles": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.822987,
+          35.435790
+        ]
+      },
+      "properties": {
+        "region": "平田",
+        "store_name": "丸合平田店",
+        "address_partial": "島根県出雲市平田町1598",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ",
+        "recycling_cans_bottles": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.823861,
+          35.439292
+        ]
+      },
+      "properties": {
+        "region": "平田",
+        "store_name": "ラピタひらた店",
+        "address_partial": "島根県出雲市平田町2350",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶, リターナブルびん"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.71472,
+          35.254588
+        ]
+      },
+      "properties": {
+        "region": "佐田",
+        "store_name": "ラピタ佐田店",
+        "address_partial": "島根県出雲市佐田町反辺1586-12",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.627865,
+          35.285900
+        ]
+      },
+      "properties": {
+        "region": "多伎",
+        "store_name": "ラピタ多伎店",
+        "address_partial": "島根県出雲市多伎町多岐",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.684444,
+          35.385558
+        ]
+      },
+      "properties": {
+        "region": "湖陵",
+        "store_name": "ラピタ湖陵店",
+        "address_partial": "島根県出雲市湖陵町差海708-5",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶, リターナブルびん"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.697412,
+          35.405763
+        ]
+      },
+      "properties": {
+        "region": "大社",
+        "store_name": "フーズマーケットホック大社店",
+        "address_partial": "島根県出雲市大社町北荒木625-2",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ",
+        "recycling_cans_bottles": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.709971,
+          35.405527
+        ]
+      },
+      "properties": {
+        "region": "大社",
+        "store_name": "フーズマーケットホック大社浜山店",
+        "address_partial": "島根県出雲市大社町入南608-1",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ",
+        "recycling_cans_bottles": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.686500,
+          35.400583
+        ]
+      },
+      "properties": {
+        "region": "大社",
+        "store_name": "ラピタ大社店",
+        "address_partial": "〒699-0711 島根県出雲市大社町杵築南本町９９６",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶, リターナブルびん"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.807525,
+          35.373594
+        ]
+      },
+      "properties": {
+        "region": "斐川",
+        "store_name": "グッディー斐川店",
+        "address_partial": "島根県出雲市斐川町上直江1222",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶, リターナブルびん"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.866146,
+          35.396593
+        ]
+      },
+      "properties": {
+        "region": "斐川",
+        "store_name": "SUPER CENTER PLANT 斐川店",
+        "address_partial": "島根県出雲市斐川町荘原１２４９番地",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.844111,
+          35.385317
+        ]
+      },
+      "properties": {
+        "region": "斐川",
+        "store_name": "生鮮食品おだ斐川店",
+        "address_partial": "島根県出雲市斐川町黒目５３５",
+        "recycling_paper": "ダンボール, 牛乳パック",
+        "recycling_plastic": "白色トレイ",
+        "recycling_cans_bottles": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          132.808240,
+          35.387869
+        ]
+      },
+      "properties": {
+        "region": "斐川",
+        "store_name": "ゆめタウン斐川店",
+        "address_partial": "島根県出雲市斐川町上直江1301-1",
+        "recycling_paper": "ダンボール, 牛乳パック, 新聞, 雑誌類",
+        "recycling_plastic": "白色トレイ, 白色以外のトレイ, 透明プラ容器, ペットボトル",
+        "recycling_cans_bottles": "スチール缶, アルミ缶, リターナブルびん"
+      }
+    }
+  ]
+}

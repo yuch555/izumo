@@ -1,4 +1,4 @@
-import { Trash2, Newspaper } from "lucide-react";
+import { Trash2, Newspaper, Recycle } from "lucide-react";
 import Link from "next/link";
 import { getAllNews } from "../lib/news";
 
@@ -19,7 +19,7 @@ export default async function Home() {
         </section>
 
         {/* 主要機能カード */}
-        <section className="mb-12 grid md:grid-cols-2 gap-6">
+        <section className="mb-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Link
             href="/garbage"
             className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-200 rounded-xl p-8 hover:shadow-xl hover:scale-[1.02] transition-all group"
@@ -37,6 +37,26 @@ export default async function Home() {
             </div>
             <p className="text-gray-700">
               ゴミの分け方・出し方を簡単に検索できます。50音順での検索や分別区分での絞り込みが可能です。
+            </p>
+          </Link>
+
+          <Link
+            href="/recycling"
+            className="bg-gradient-to-br from-cyan-50 to-cyan-100 border-2 border-cyan-200 rounded-xl p-8 hover:shadow-xl hover:scale-[1.02] transition-all group"
+          >
+            <div className="flex items-center mb-4">
+              <div className="bg-cyan-500 p-3 rounded-full mr-4 group-hover:rotate-12 transition-transform">
+                <Recycle size={32} className="text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800">
+                  リサイクルステーション
+                </h2>
+                <p className="text-gray-600">店舗を地図から探す</p>
+              </div>
+            </div>
+            <p className="text-gray-700">
+              スーパーや店舗のリサイクルステーションを地図から検索。紙類・プラスチック・缶びんなど。
             </p>
           </Link>
 
