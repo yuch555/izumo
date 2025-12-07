@@ -41,10 +41,10 @@ export default async function AEDsPage() {
               <h2 className="text-2xl font-bold mb-2">{aed.name}</h2>
               <div className="space-y-2 text-gray-700">
                 <p>
-                  📍 <strong>住所:</strong> {aed.address}
+                  <strong>住所:</strong> {aed.address}
                 </p>
                 <p>
-                  📍 <strong>設置場所:</strong> {aed.location}
+                  <strong>設置場所:</strong> {aed.location}
                 </p>
                 <p>
                   🕐 <strong>利用可能時間:</strong> {aed.availability}

@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import Map, { Marker, Popup, useMap } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapboxLanguage from "@mapbox/mapbox-gl-language";
+import { Recycle, FileText, Milk, Beef, MapPin } from "lucide-react";
 import type { RecyclingStore } from "../../../lib/recycling";
 
 // Mapbox access token - 環境変数から取得
@@ -112,9 +113,9 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
             className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             <option value="all">すべての品目</option>
-            <option value="paper">📄 紙類</option>
-            <option value="plastic">🥤 プラスチック</option>
-            <option value="cans_bottles">🥫 缶・びん</option>
+            <option value="paper">紙類</option>
+            <option value="plastic">プラスチック</option>
+            <option value="cans_bottles">缶・びん</option>
           </select>
         </div>
       </div>
@@ -147,8 +148,9 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
         </div>
       ) : !hasValidCoordinates ? (
         <div className="p-6 bg-blue-50 border border-blue-200 rounded-lg">
-          <p className="text-blue-800 font-medium mb-2">
-            📍 座標データがありません
+          <p className="text-blue-800 font-medium mb-2 flex items-center gap-2">
+            <MapPin size={20} />
+            座標データがありません
           </p>
           <p className="text-sm text-blue-700">
             現在、店舗の位置情報が登録されていないため、リスト表示のみとなります。
@@ -183,8 +185,8 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                   setSelectedStore(store);
                 }}
               >
-                <div className="text-2xl cursor-pointer hover:scale-110 transition-transform">
-                  ♻️
+                <div className="cursor-pointer hover:scale-110 transition-transform bg-green-500 rounded-full p-2">
+                  <Recycle className="text-white" size={24} />
                 </div>
               </Marker>
             ))}
@@ -207,8 +209,8 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                   <div className="space-y-2">
                     {selectedStore.recycling_items.paper.length > 0 && (
                       <div>
-                        <p className="text-xs font-semibold text-green-700">
-                          📄 紙類:
+                        <p className="text-xs font-semibold text-green-700 flex items-center gap-1">
+                          <FileText size={14} /> 紙類:
                         </p>
                         <p className="text-xs text-gray-700">
                           {selectedStore.recycling_items.paper.join("、")}
@@ -217,8 +219,8 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                     )}
                     {selectedStore.recycling_items.plastic.length > 0 && (
                       <div>
-                        <p className="text-xs font-semibold text-blue-700">
-                          🥤 プラスチック:
+                        <p className="text-xs font-semibold text-blue-700 flex items-center gap-1">
+                          <Milk size={14} /> プラスチック:
                         </p>
                         <p className="text-xs text-gray-700">
                           {selectedStore.recycling_items.plastic.join("、")}
@@ -227,8 +229,8 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                     )}
                     {selectedStore.recycling_items.cans_bottles.length > 0 && (
                       <div>
-                        <p className="text-xs font-semibold text-orange-700">
-                          🥫 缶・びん:
+                        <p className="text-xs font-semibold text-orange-700 flex items-center gap-1">
+                          <Beef size={14} /> 缶・びん:
                         </p>
                         <p className="text-xs text-gray-700">
                           {selectedStore.recycling_items.cans_bottles.join(
@@ -261,7 +263,7 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                 <h3 className="font-bold text-gray-800 text-lg">
                   {store.store_name}
                 </h3>
-                <span className="text-2xl">♻️</span>
+                <Recycle className="text-green-600" size={28} />
               </div>
               <p className="text-sm text-gray-600 mb-3">
                 <span className="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium mr-2">
@@ -273,9 +275,7 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
               <div className="space-y-2">
                 {store.recycling_items.paper.length > 0 && (
                   <div className="flex flex-wrap gap-1">
-                    <span className="text-xs font-semibold text-green-700">
-                      📄
-                    </span>
+                    <FileText className="text-green-700" size={16} />
                     {store.recycling_items.paper.map((item, i) => (
                       <span
                         key={i}
@@ -288,9 +288,7 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                 )}
                 {store.recycling_items.plastic.length > 0 && (
                   <div className="flex flex-wrap gap-1">
-                    <span className="text-xs font-semibold text-blue-700">
-                      🥤
-                    </span>
+                    <Milk className="text-blue-700" size={16} />
                     {store.recycling_items.plastic.map((item, i) => (
                       <span
                         key={i}
@@ -303,9 +301,7 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                 )}
                 {store.recycling_items.cans_bottles.length > 0 && (
                   <div className="flex flex-wrap gap-1">
-                    <span className="text-xs font-semibold text-orange-700">
-                      🥫
-                    </span>
+                    <Beef className="text-orange-700" size={16} />
                     {store.recycling_items.cans_bottles.map((item, i) => (
                       <span
                         key={i}

@@ -1,7 +1,14 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, Filter, Trash2, AlertCircle } from "lucide-react";
+import {
+  Search,
+  Filter,
+  Trash2,
+  AlertCircle,
+  BanIcon,
+  Package,
+} from "lucide-react";
 import type { GarbageItem } from "../../../lib/garbage";
 import { garbageCategories } from "../../../lib/garbage";
 
@@ -53,15 +60,15 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
 
   const getCategoryIcon = (category: string) => {
     if (category === "禁止") {
-      return "🚫";
+      return <BanIcon size={16} className="inline" />;
     }
     if (category.includes("リサイクル")) {
-      return "♻️";
+      return "リサイクル";
     }
     if (category === "粗大ごみ") {
-      return "📦";
+      return <Package size={16} className="inline" />;
     }
-    return "🗑️";
+    return "ゴミ";
   };
 
   return (

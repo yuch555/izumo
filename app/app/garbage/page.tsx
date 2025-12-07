@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowBigLeftIcon } from "lucide-react";
+import { ArrowBigLeftIcon, Trash2 } from "lucide-react";
 import { GarbageSearch } from "../../src/components/features/GarbageSearch";
 import { getAllGarbageItems } from "../../lib/garbage";
 
@@ -25,8 +25,9 @@ export default function GarbagePage() {
         </div>
 
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4 text-gray-800">
-            🗑️ ゴミ分別検索
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 flex items-center gap-3">
+            <Trash2 className="text-green-600" size={40} />
+            ゴミ分別検索
           </h1>
           <p className="text-gray-600">
             出雲市のゴミの分け方・出し方を簡単に検索できます。品目名を入力するか、分別区分で絞り込んでください。

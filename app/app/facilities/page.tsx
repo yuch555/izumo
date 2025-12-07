@@ -47,7 +47,7 @@ export default async function FacilitiesPage() {
               <h2 className="text-2xl font-bold mb-2">{facility.name}</h2>
               <div className="space-y-2 text-gray-700">
                 <p>
-                  📍 <strong>住所:</strong> {facility.address}
+                  <strong>住所:</strong> {facility.address}
                 </p>
                 {facility.phone && (
                   <p>

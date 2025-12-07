@@ -41,7 +41,7 @@ export default async function SheltersPage() {
               <h2 className="text-2xl font-bold mb-2">{shelter.name}</h2>
               <div className="space-y-2 text-gray-700">
                 <p>
-                  📍 <strong>住所:</strong> {shelter.address}
+                  <strong>住所:</strong> {shelter.address}
                 </p>
                 {shelter.capacity && (
                   <p>
