@@ -1,6 +1,7 @@
 import { Trash2, Newspaper, Recycle } from "lucide-react";
 import Link from "next/link";
 import { getAllNews } from "../lib/news";
+import { PopulationStats } from "../src/components/features/PopulationStats";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;
@@ -20,7 +21,7 @@ export default async function Home() {
             className="text-lg text-gray-600 mb-2"
             style={{ wordBreak: "auto-phrase" }}
           >
-            出雲市での生活をもっと便利に。ゴミの分別方法やリサイクル拠点など
+            出雲市での生活をもっと便利に。
           </p>
           <p
             className="text-lg text-gray-600 mb-6"
@@ -91,6 +92,11 @@ export default async function Home() {
               出雲市からの最新のお知らせや重要な情報を確認できます。カテゴリー別に検索も可能です。
             </p>
           </Link>
+        </section>
+
+        {/* 住民統計セクション */}
+        <section className="mb-12">
+          <PopulationStats />
         </section>
       </div>
     </main>
