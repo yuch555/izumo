@@ -5,17 +5,29 @@ import { getAllNews } from "../lib/news";
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;
 
-async function getLatestNews() {
-  const allNews = await getAllNews();
-  return allNews.slice(0, 5); // 最新5件
-}
-
 export default async function Home() {
   return (
     <main className="min-h-screen">
-      <div className="max-w-7xl mx-auto">
-        <section className="mb-12">
-          <h1 className="text-4xl font-bold my-2">出雲市お役立ちWEBサイト</h1>
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <section className="mb-12 text-center">
+          <h1
+            className="text-4xl md:text-5xl font-bold text-gray-800 mb-4"
+            style={{ wordBreak: "auto-phrase" }}
+          >
+            出雲市お役立ちWEBサイト
+          </h1>
+          <p
+            className="text-lg text-gray-600 mb-2"
+            style={{ wordBreak: "auto-phrase" }}
+          >
+            出雲市での生活をもっと便利に。ゴミの分別方法やリサイクル拠点など
+          </p>
+          <p
+            className="text-lg text-gray-600 mb-6"
+            style={{ wordBreak: "auto-phrase" }}
+          >
+            最新のお知らせ情報をかんたんに検索できます。
+          </p>
         </section>
 
         {/* 主要機能カード */}
