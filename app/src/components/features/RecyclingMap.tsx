@@ -207,9 +207,10 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                 onClose={() => setSelectedStore(null)}
                 closeButton={true}
                 closeOnClick={false}
+                className="dark:bg-gray-800"
               >
-                <div className="p-2 max-w-xs">
-                  <h3 className="font-bold text-lg mb-1">
+                <div className="p-2 max-w-xs dark:bg-gray-800">
+                  <h3 className="font-bold text-lg mb-1 dark:text-gray-100">
                     {selectedStore.store_name}
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
@@ -218,7 +219,7 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                   <div className="space-y-2">
                     {selectedStore.recycling_items.paper.length > 0 && (
                       <div>
-                        <p className="text-xs font-semibold text-green-700 flex items-center gap-1">
+                        <p className="text-xs font-semibold text-green-700 dark:text-green-400 flex items-center gap-1">
                           <FileText size={14} /> 紙類:
                         </p>
                         <p className="text-xs text-gray-700 dark:text-gray-300">
@@ -228,7 +229,7 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                     )}
                     {selectedStore.recycling_items.plastic.length > 0 && (
                       <div>
-                        <p className="text-xs font-semibold text-blue-700 flex items-center gap-1">
+                        <p className="text-xs font-semibold text-blue-700 dark:text-blue-400 flex items-center gap-1">
                           <Milk size={14} /> プラスチック:
                         </p>
                         <p className="text-xs text-gray-700 dark:text-gray-300">
@@ -238,7 +239,7 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                     )}
                     {selectedStore.recycling_items.cans_bottles.length > 0 && (
                       <div>
-                        <p className="text-xs font-semibold text-orange-700 flex items-center gap-1">
+                        <p className="text-xs font-semibold text-orange-700 dark:text-orange-400 flex items-center gap-1">
                           <Beef size={14} /> 缶・びん:
                         </p>
                         <p className="text-xs text-gray-700 dark:text-gray-300">

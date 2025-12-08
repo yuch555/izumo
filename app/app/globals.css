@@ -159,3 +159,42 @@ main {
     @apply bg-background text-foreground;
   }
 }
+
+/* Mapbox Popup ダークモード対応 */
+.dark .mapboxgl-popup-content {
+  background-color: #1f2937 !important;
+  color: #f3f4f6 !important;
+}
+
+.dark .mapboxgl-popup-close-button {
+  color: #f3f4f6 !important;
+  font-size: 24px !important;
+  width: 24px !important;
+  height: 24px !important;
+  line-height: 20px !important;
+  padding: 0 !important;
+  border-radius: 4px !important;
+}
+
+.dark .mapboxgl-popup-close-button:hover {
+  background-color: #374151 !important;
+}
+
+.dark .mapboxgl-popup-tip {
+  border-top-color: #1f2937 !important;
+  border-bottom-color: #1f2937 !important;
+}
+
+/* ライトモードでも閉じるボタンを調整 */
+.mapboxgl-popup-close-button {
+  font-size: 24px !important;
+  width: 24px !important;
+  height: 24px !important;
+  line-height: 20px !important;
+  padding: 0 !important;
+  border-radius: 4px !important;
+}
+
+.mapboxgl-popup-close-button:hover {
+  background-color: #f3f4f6 !important;
+}
