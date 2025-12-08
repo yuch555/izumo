@@ -1,4 +1,4 @@
-import garbageJson from "../public/data/garbage.json";
+import garbageJson from "~/public/data/garbage.json";
 
 export interface GarbageItem {
   name: string;

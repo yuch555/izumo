@@ -30,7 +30,7 @@ import {
   BarChart3,
   PieChart as PieChartIcon,
 } from "lucide-react";
-import juuminData from "../../../public/data/artificialData/izumo_jumin_daicho_202510.json";
+import juuminData from "~/public/data/artificialData/izumo_jumin_daicho_202510.json";
 
 // 地区別人口データの変換
 const districtData = juuminData["地区別世帯・人口集計"].map((district) => ({

@@ -6,17 +6,6 @@ import { useState, useMemo } from "react";
 
 import { format } from "date-fns";
 import { ja } from "date-fns/locale";
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "../../../components/ui/toggle-group";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "../../../components/ui/popover";
-import { Button } from "../../../components/ui/button";
-import { Calendar } from "../../../components/ui/calendar";
 
 type NewsItem = {
   id: string;
@@ -26,6 +15,14 @@ type NewsItem = {
   pubDate: string;
   category?: string;
 };
+import { ToggleGroup, ToggleGroupItem } from "~/components/ui/toggle-group";
+import { Button } from "~/components/ui/button";
+import { Calendar } from "~/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "~/components/ui/popover";
 
 type NewsSearchProps = {
   newsItems: NewsItem[];

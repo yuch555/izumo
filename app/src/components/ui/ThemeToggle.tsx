@@ -4,35 +4,32 @@ import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
+    // 初回マウント時の処理
+    const savedTheme = localStorage.getItem("theme") === "dark";
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsDark(savedTheme);
+
+    if (savedTheme) {
       document.documentElement.classList.add("dark");
-      setIsDark(true);
     }
+
+    setMounted(true);
   }, []);
 
-  const toDark = () => {
-    document.documentElement.classList.add("dark");
-    localStorage.setItem("theme", "dark");
-    setIsDark(true);
-  };
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
 
-  const toLight = () => {
-    document.documentElement.classList.remove("dark");
-    localStorage.removeItem("theme");
-    setIsDark(false);
-  };
-
-  const changeMode = () => {
-    if (isDark) {
-      toLight();
+    if (newTheme) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      toDark();
+      document.documentElement.classList.remove("dark");
+      localStorage.removeItem("theme");
     }
   };
 
@@ -42,7 +39,7 @@ export function ThemeToggle() {
 
   return (
     <button
-      onClick={changeMode}
+      onClick={toggleTheme}
       className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
       aria-label={isDark ? "ライトモードに切り替え" : "ダークモードに切り替え"}
     >

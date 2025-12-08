@@ -5,7 +5,7 @@ import Map, { Marker, Popup, useMap } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapboxLanguage from "@mapbox/mapbox-gl-language";
 import { Recycle, FileText, Milk, Beef, MapPin } from "lucide-react";
-import type { RecyclingStore } from "../../../lib/recycling";
+
 import {
   Select,
   SelectContent,
@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { RecyclingStore } from "~/lib/recycling";
 
 // Mapbox access token - 環境変数から取得
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || "";

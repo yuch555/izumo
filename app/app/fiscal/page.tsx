@@ -1,5 +1,5 @@
 import { BackToHome } from "@/components/base/BackToHome";
-import { FiscalStats } from "../../src/components/features/FiscalStats";
+import { FiscalStats } from "@/components/features/FiscalStats";
 
 export default function FiscalPage() {
   return (

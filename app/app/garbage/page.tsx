@@ -1,7 +1,7 @@
 import { Trash2 } from "lucide-react";
-import { BackToHome } from "../../src/components/base/BackToHome";
-import { GarbageSearch } from "../../src/components/features/GarbageSearch";
-import { getAllGarbageItems } from "../../lib/garbage";
+import { BackToHome } from "@/components/base/BackToHome";
+import { GarbageSearch } from "@/components/features/GarbageSearch";
+import { getAllGarbageItems } from "~/lib/garbage";
 
 export const metadata = {
   title: "ゴミ分別検索 | 出雲市",

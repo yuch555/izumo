@@ -1,8 +1,6 @@
+import { PopulationStats } from "@/components/features/PopulationStats";
 import { Trash2, Newspaper, Recycle, Building2 } from "lucide-react";
 import Link from "next/link";
-import { getAllNews } from "../lib/news";
-import { PopulationStats } from "../src/components/features/PopulationStats";
-import { FiscalStats } from "../src/components/features/FiscalStats";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;

@@ -1,7 +1,8 @@
 import { RecyclingMap } from "@/components/features/RecyclingMap";
 import { Recycle, FileText, Milk, Beef } from "lucide-react";
-import { getAllRecyclingStores } from "../../lib/recycling";
-import { BackToHome } from "../../src/components/base/BackToHome";
+
+import { BackToHome } from "@/components/base/BackToHome";
+import { getAllRecyclingStores } from "~/lib/recycling";
 
 export const metadata = {
   title: "リサイクルステーション検索 | 出雲市",

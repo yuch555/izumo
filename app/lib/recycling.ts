@@ -1,4 +1,4 @@
-import cycleAriaData from "../public/data/cycle-aria.json";
+import cycleAriaData from "~/public/data/cycle-aria.json";
 
 export interface RecyclingStore {
   region: string;

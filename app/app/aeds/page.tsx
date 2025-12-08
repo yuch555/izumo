@@ -1,5 +1,3 @@
-import { BackToHome } from "../../src/components/base/BackToHome";
-
 type AED = {
   id: string;
   name: string;

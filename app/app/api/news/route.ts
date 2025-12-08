@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { XMLParser } from 'fast-xml-parser';
-import { NewsResponseSchema, type NewsItem } from '../../../src/features/news/schemas';
+import { NewsItem } from '~/lib/news';
+import { NewsResponseSchema } from '@/features/news/schemas';
 
 // Route Segment Config
 export const runtime = 'nodejs';

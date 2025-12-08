@@ -10,8 +10,7 @@ import {
   Package,
   Lightbulb,
 } from "lucide-react";
-import type { GarbageItem } from "../../../lib/garbage";
-import { garbageCategories } from "../../../lib/garbage";
+import { GarbageItem } from "~/lib/garbage";
 
 interface GarbageSearchProps {
   garbageItems: GarbageItem[];

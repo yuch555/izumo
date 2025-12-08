@@ -1,5 +1,3 @@
-import { BackToHome } from "../../src/components/base/BackToHome";
-
 type PublicFacility = {
   id: string;
   name: string;

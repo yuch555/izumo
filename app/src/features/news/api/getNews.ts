@@ -1,4 +1,4 @@
-import type { NewsResponse } from '../types';
+import { NewsResponse } from "../schemas";
 
 // APIルートからニュースデータを取得（RSSまたはローカルJSON）
 export async function getNews(): Promise<NewsResponse> {

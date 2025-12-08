@@ -39,7 +39,7 @@ import {
   Wallet,
   HelpCircle,
 } from "lucide-react";
-import fiscalData from "../../../public/data/fiscalOverviewData/izumo_2023_fiscal_overview.json";
+import fiscalData from "~/public/data/fiscalOverviewData/izumo_2023_fiscal_overview.json";
 
 // 千円を億円に変換するヘルパー関数
 const toOkuEn = (senEn: number) => Math.round(senEn / 100000);

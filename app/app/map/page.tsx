@@ -1,5 +1,3 @@
-import { BackToHome } from "../../src/components/base/BackToHome";
-
 export default function MapPage() {
   return (
     <main className="min-h-screen p-8">

@@ -1,4 +1,5 @@
-import type { OpenDataResponse } from '../types';
+import { OpenDataResponse } from "../types";
+
 
 // ローカルJSONからオープンデータを取得
 export async function getOpenData(): Promise<OpenDataResponse> {

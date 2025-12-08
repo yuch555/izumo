@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header } from "../src/components/base/Header";
-import { Footer } from "../src/components/base/Footer";
+import { Header } from "@/components/base/Header";
+import { Footer } from "@/components/base/Footer";
 
 export const metadata: Metadata = {
   title: "出雲市お役立ちWEBサイト",

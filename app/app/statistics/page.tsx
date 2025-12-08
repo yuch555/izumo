@@ -1,4 +1,4 @@
-import { PopulationStats } from "../../src/components/features/PopulationStats";
+import { PopulationStats } from "@/src/components/features/PopulationStats";
 
 export default function StatisticsPage() {
   return (

@@ -1,6 +1,6 @@
-import { NewsSearch } from "../../src/components/features/NewsSearch";
-import { getAllNews } from "../../lib/news";
-import { BackToHome } from "../../src/components/base/BackToHome";
+import { BackToHome } from "@/components/base/BackToHome";
+import { NewsSearch } from "@/components/features/NewsSearch";
+import { getAllNews } from "~/lib/news";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;
