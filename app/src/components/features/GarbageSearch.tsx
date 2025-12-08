@@ -26,7 +26,12 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
 
     // カテゴリーでフィルタリング
     if (selectedCategory && selectedCategory !== "すべて") {
-      items = items.filter((item) => item.category === selectedCategory);
+      if (selectedCategory === "リサイクル") {
+        // リサイクルは曖昧検索（部分一致）
+        items = items.filter((item) => item.category.includes("リサイクル"));
+      } else {
+        items = items.filter((item) => item.category === selectedCategory);
+      }
     }
 
     // 検索クエリでフィルタリング
@@ -128,15 +133,9 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
             )
           )}
           <button
-            onClick={() =>
-              setSelectedCategory(
-                selectedCategory?.includes("リサイクル")
-                  ? "すべて"
-                  : "リサイクル"
-              )
-            }
+            onClick={() => setSelectedCategory("リサイクル")}
             className={`px-5 py-2.5 rounded-full transition-all font-medium shadow-sm ${
-              selectedCategory?.includes("リサイクル")
+              selectedCategory === "リサイクル"
                 ? "bg-green-600 text-white shadow-green-200 hover:bg-green-700"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md"
             }`}
