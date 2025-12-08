@@ -216,7 +216,7 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                     {selectedStore.region} - {selectedStore.address_partial}
                   </p>
-                  <div className="space-y-2">
+                  <div className="space-y-2 mb-3">
                     {selectedStore.recycling_items.paper.length > 0 && (
                       <div>
                         <p className="text-xs font-semibold text-green-700 dark:text-green-400 flex items-center gap-1">
@@ -250,6 +250,18 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                       </div>
                     )}
                   </div>
+                  <button
+                    onClick={() =>
+                      window.open(
+                        `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${selectedStore.latitude},${selectedStore.longitude}`,
+                        "_blank"
+                      )
+                    }
+                    className="w-full bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white text-xs font-medium py-2 px-3 rounded flex items-center justify-center gap-2 transition-colors"
+                  >
+                    <MapPin size={14} />
+                    ストリートビューで見る
+                  </button>
                 </div>
               </Popup>
             )}
