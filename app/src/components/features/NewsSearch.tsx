@@ -90,7 +90,7 @@ export function NewsSearch({ newsItems }: NewsSearchProps) {
             placeholder="お知らせを検索..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400"
           />
         </div>
         <div className="flex gap-3 flex-wrap items-center">
@@ -153,7 +153,7 @@ export function NewsSearch({ newsItems }: NewsSearchProps) {
           </Popover>
         </div>
 
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600 dark:text-gray-400">
           {filteredNews.length}件のお知らせ
         </p>
       </div>
@@ -161,7 +161,7 @@ export function NewsSearch({ newsItems }: NewsSearchProps) {
       {/* ニュースリスト */}
       <div className="grid gap-2">
         {filteredNews.length === 0 ? (
-          <p className="text-gray-500 text-center py-8">
+          <p className="text-gray-500 dark:text-gray-400 text-center py-8">
             該当するお知らせが見つかりませんでした
           </p>
         ) : (
@@ -171,7 +171,7 @@ export function NewsSearch({ newsItems }: NewsSearchProps) {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="block bg-white border rounded-lg p-2 hover:shadow-md hover:scale-[1.01] transition-all group"
+              className="block bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-lg p-2 hover:shadow-md hover:scale-[1.01] transition-all group"
               style={{
                 animation: `fadeInUp 0.3s ease-out ${index * 0.05}s both`,
               }}
@@ -180,12 +180,12 @@ export function NewsSearch({ newsItems }: NewsSearchProps) {
                 <span className="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
                   {item.category}
                 </span>
-                <span className="text-sm text-gray-500">
+                <span className="text-sm text-gray-500 dark:text-gray-400">
                   {new Date(item.pubDate).toLocaleDateString("ja-JP")}
                 </span>
               </div>
               <h3 className="text-xl font-bold">{item.title}</h3>
-              <p className="text-gray-700 mb-2 line-clamp-2">
+              <p className="text-gray-700 dark:text-gray-300 mb-2 line-clamp-2">
                 {item.description}
               </p>
             </Link>

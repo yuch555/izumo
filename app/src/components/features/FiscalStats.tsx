@@ -137,14 +137,14 @@ export function FiscalStats() {
     <TooltipProvider>
       <div className="space-y-6">
         {/* ヘッダー */}
-        <div className="space-y-3 bg-gradient-to-r from-emerald-50 to-teal-50 p-6 rounded-lg border border-emerald-100">
+        <div className="space-y-3 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-lg border border-emerald-100 dark:border-gray-600">
           <div className="flex items-center gap-3">
-            <Building2 className="w-8 h-8 text-emerald-600" />
-            <h1 className="text-3xl font-bold text-gray-800">
+            <Building2 className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+            <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
               出雲市 財政状況
             </h1>
           </div>
-          <p className="text-gray-600">
+          <p className="text-gray-600 dark:text-gray-400">
             {fiscalData.metadata.year} | {fiscalData.metadata.municipality}
           </p>
         </div>
@@ -159,7 +159,7 @@ export function FiscalStats() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-gray-800">
+              <p className="text-3xl font-bold text-gray-800 dark:text-gray-100">
                 {fiscalData.population.basic_residents_2024_01_01.toLocaleString()}
                 人
               </p>
@@ -189,10 +189,10 @@ export function FiscalStats() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-gray-800">
+              <p className="text-3xl font-bold text-gray-800 dark:text-gray-100">
                 {fiscalData.population.households.toLocaleString()}世帯
               </p>
-              <p className="text-sm text-gray-500 mt-2">
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                 人口密度: {fiscalData.population.density_per_km2}人/km²
               </p>
             </CardContent>
@@ -216,11 +216,11 @@ export function FiscalStats() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-gray-800">
+              <p className="text-3xl font-bold text-gray-800 dark:text-gray-100">
                 {fiscalData.finance.financial_power_index}
               </p>
               <div className="flex items-center gap-1 mt-2">
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
                   将来負担比率: {fiscalData.finance.future_burden_ratio}%
                 </p>
                 <Tooltip>
@@ -258,12 +258,12 @@ export function FiscalStats() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-gray-800">
+              <p className="text-3xl font-bold text-gray-800 dark:text-gray-100">
                 {toOkuEn(fiscalData.finance.revenue_total).toLocaleString()}
                 億円
               </p>
               <div className="flex items-center gap-1 mt-2">
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
                   標準財政規模:{" "}
                   {toOkuEn(
                     fiscalData.finance.standard_financial_size
@@ -302,7 +302,7 @@ export function FiscalStats() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-gray-800">
+              <p className="text-3xl font-bold text-gray-800 dark:text-gray-100">
                 {toOkuEn(fiscalData.finance.expenditure_total).toLocaleString()}
                 億円
               </p>
@@ -557,8 +557,8 @@ export function FiscalStats() {
                 </BarChart>
               </ResponsiveContainer>
             </div>
-            <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-              <p className="text-sm text-gray-700">
+            <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <p className="text-sm text-gray-700 dark:text-gray-300">
                 総職員数:{" "}
                 {fiscalData.personnel.general_staff.total.count.toLocaleString()}
                 人 | 平均給与:{" "}

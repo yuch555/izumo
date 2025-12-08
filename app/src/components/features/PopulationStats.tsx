@@ -65,16 +65,20 @@ export function PopulationStats() {
   return (
     <div className="space-y-6">
       {/* ヘッダー */}
-      <div className="space-y-3 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-100">
+      <div className="space-y-3 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-lg border border-blue-100 dark:border-gray-600">
         <div className="flex items-center gap-3">
-          <BarChart3 className="w-8 h-8 text-blue-600" />
-          <h1 className="text-3xl font-bold text-gray-800">出雲市 住民統計</h1>
+          <BarChart3 className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
+            出雲市 住民統計
+          </h1>
         </div>
-        <div className="flex items-center gap-2 text-gray-600">
+        <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
           <MapPin className="w-4 h-4" />
           <p className="text-sm">調査基準日: {juuminData["調査基準日"]}</p>
         </div>
-        <p className="text-sm text-gray-500">出典: {juuminData["出典"]}</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          出典: {juuminData["出典"]}
+        </p>
       </div>
 
       {/* 総合計の概要 */}
@@ -87,7 +91,7 @@ export function PopulationStats() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-bold text-gray-800">
+            <p className="text-3xl font-bold text-gray-800 dark:text-gray-100">
               {juuminData["総合計"]["世帯数"].toLocaleString()}
             </p>
             <div className="flex items-center gap-1 mt-2">
@@ -119,7 +123,7 @@ export function PopulationStats() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-bold text-gray-800">
+            <p className="text-3xl font-bold text-gray-800 dark:text-gray-100">
               {juuminData["総合計"]["計"].toLocaleString()}
             </p>
             <div className="flex items-center gap-1 mt-2">
@@ -150,13 +154,17 @@ export function PopulationStats() {
           <CardContent>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">男性</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  男性
+                </span>
                 <span className="text-xl font-bold text-blue-600">
                   {juuminData["総合計"]["男"].toLocaleString()}
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">女性</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  女性
+                </span>
                 <span className="text-xl font-bold text-pink-600">
                   {juuminData["総合計"]["女"].toLocaleString()}
                 </span>
@@ -222,7 +230,7 @@ export function PopulationStats() {
                 className="w-4 h-4 rounded"
                 style={{ backgroundColor: COLORS[0] }}
               ></div>
-              <span className="text-sm text-gray-700">
+              <span className="text-sm text-gray-700 dark:text-gray-300">
                 日本人: {nationalityData[0].value.toLocaleString()}人
               </span>
             </div>
@@ -231,7 +239,7 @@ export function PopulationStats() {
                 className="w-4 h-4 rounded"
                 style={{ backgroundColor: COLORS[1] }}
               ></div>
-              <span className="text-sm text-gray-700">
+              <span className="text-sm text-gray-700 dark:text-gray-300">
                 外国人住民: {nationalityData[1].value.toLocaleString()}人
               </span>
             </div>

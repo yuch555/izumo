@@ -22,11 +22,13 @@ export default async function SheltersPage() {
   const shelters = await getShelters();
 
   return (
-    <main className="min-h-screen p-8">
+    <main className="min-h-screen p-8 bg-white dark:bg-gray-900 transition-colors">
       <div className="max-w-6xl mx-auto">
         <div className="mb-6"></div>
 
-        <h1 className="text-4xl font-bold mb-8">🏢 避難所情報</h1>
+        <h1 className="text-4xl font-bold mb-8 text-gray-800 dark:text-gray-100">
+          🏢 避難所情報
+        </h1>
 
         <div className="grid gap-6">
           {shelters.map((shelter) => (

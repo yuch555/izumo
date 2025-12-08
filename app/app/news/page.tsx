@@ -9,11 +9,13 @@ export default async function NewsPage() {
   const newsItems = await getAllNews();
 
   return (
-    <main className="min-h-screen p-8">
+    <main className="min-h-screen p-8 bg-white dark:bg-gray-900 transition-colors">
       <div className="max-w-6xl mx-auto">
         <BackToHome />
 
-        <h1 className="text-4xl font-bold my-2">お知らせ</h1>
+        <h1 className="text-4xl font-bold my-2 text-gray-800 dark:text-gray-100">
+          お知らせ
+        </h1>
 
         <NewsSearch newsItems={newsItems} />
       </div>
