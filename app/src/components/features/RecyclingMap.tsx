@@ -91,9 +91,9 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
   return (
     <div className="space-y-4">
       {/* フィルター */}
-      <div className="flex flex-col sm:flex-row gap-4 p-4 bg-white rounded-lg shadow">
+      <div className="flex flex-col sm:flex-row gap-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
         <div className="flex-1">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             地域で絞り込み
           </label>
           <Select value={selectedRegion} onValueChange={setSelectedRegion}>
@@ -112,7 +112,7 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
         </div>
 
         <div className="flex-1">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             品目で絞り込み
           </label>
           <Select value={selectedCategory} onValueChange={setSelectedCategory}>
@@ -212,7 +212,7 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                   <h3 className="font-bold text-lg mb-1">
                     {selectedStore.store_name}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-2">
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                     {selectedStore.region} - {selectedStore.address_partial}
                   </p>
                   <div className="space-y-2">
@@ -221,7 +221,7 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                         <p className="text-xs font-semibold text-green-700 flex items-center gap-1">
                           <FileText size={14} /> 紙類:
                         </p>
-                        <p className="text-xs text-gray-700">
+                        <p className="text-xs text-gray-700 dark:text-gray-300">
                           {selectedStore.recycling_items.paper.join("、")}
                         </p>
                       </div>
@@ -231,7 +231,7 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                         <p className="text-xs font-semibold text-blue-700 flex items-center gap-1">
                           <Milk size={14} /> プラスチック:
                         </p>
-                        <p className="text-xs text-gray-700">
+                        <p className="text-xs text-gray-700 dark:text-gray-300">
                           {selectedStore.recycling_items.plastic.join("、")}
                         </p>
                       </div>
@@ -241,7 +241,7 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                         <p className="text-xs font-semibold text-orange-700 flex items-center gap-1">
                           <Beef size={14} /> 缶・びん:
                         </p>
-                        <p className="text-xs text-gray-700">
+                        <p className="text-xs text-gray-700 dark:text-gray-300">
                           {selectedStore.recycling_items.cans_bottles.join(
                             "、"
                           )}
@@ -258,23 +258,23 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
 
       {/* リスト表示 */}
       <div className="space-y-3">
-        <h2 className="text-xl font-bold text-gray-800">
+        <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100">
           店舗一覧（{filteredStores.length}件）
         </h2>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {filteredStores.map((store, index) => (
             <div
               key={index}
-              className="p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow border border-gray-200 cursor-pointer"
+              className="p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700 cursor-pointer"
               onClick={() => setSelectedStore(store)}
             >
               <div className="flex items-start justify-between mb-2">
-                <h3 className="font-bold text-gray-800 text-lg">
+                <h3 className="font-bold text-gray-800 dark:text-gray-100 text-lg">
                   {store.store_name}
                 </h3>
                 <Recycle className="text-green-600" size={28} />
               </div>
-              <p className="text-sm text-gray-600 mb-3">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
                 <span className="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium mr-2">
                   {store.region}
                 </span>
