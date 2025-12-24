@@ -106,11 +106,10 @@ test.describe('ゴミ分別検索ページ', () => {
     const searchInput = page.getByPlaceholder(
       '品目名を入力してください（例：ペットボトル、テレビ、新聞紙）'
     );
-    await searchInput.fill('存在しない品目xyz123');
-    await page.waitForTimeout(500);
+    await searchInput.fill('存在しない品目xyz123あいうえお');
 
-    // 0件のメッセージを確認
-    await expect(page.getByText('該当する品目が見つかりませんでした。')).toBeVisible();
+    // 0件のメッセージが表示されるまで待機
+    await expect(page.getByText('該当する品目が見つかりませんでした。')).toBeVisible({ timeout: 10000 });
     await expect(page.getByText('別のキーワードで検索してみてください。')).toBeVisible();
   });
 
