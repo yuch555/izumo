@@ -102,14 +102,20 @@ test.describe('ゴミ分別検索ページ', () => {
   });
 
   test('結果が0件の場合のメッセージが表示される', async ({ page }) => {
-    // 存在しない品目を検索
+    // 存在しない品目を検索（記号と数字の組み合わせで確実に該当なし）
     const searchInput = page.getByPlaceholder(
       '品目名を入力してください（例：ペットボトル、テレビ、新聞紙）'
     );
-    await searchInput.fill('存在しない品目xyz123あいうえお');
 
-    // 0件のメッセージが表示されるまで待機
-    await expect(page.getByText('該当する品目が見つかりませんでした。')).toBeVisible({ timeout: 10000 });
+    // 入力欄をクリアしてから入力
+    await searchInput.clear();
+    await searchInput.fill('ZZZZZ99999XXXXX');
+
+    // 0件の結果が表示されるまで待機
+    await expect(page.getByText('0 件の品目が見つかりました')).toBeVisible({ timeout: 10000 });
+
+    // 0件のメッセージが表示されることを確認
+    await expect(page.getByText('該当する品目が見つかりませんでした。')).toBeVisible();
     await expect(page.getByText('別のキーワードで検索してみてください。')).toBeVisible();
   });
 

@@ -29,7 +29,13 @@ export default defineConfig({
     baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'on',
+
+    /* Take screenshot on failure */
+    screenshot: 'on',
+
+    /* Record video on failure */
+    video: 'on',
   },
 
   /* Configure projects for major browsers */
@@ -72,8 +78,9 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'npm run dev',
+    command: 'TURBOPACK_ROOT="." npm run dev',
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
+    cwd: '/Users/yamaneyuuta/code/izumo/app',
   },
 });
