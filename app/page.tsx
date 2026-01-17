@@ -1,5 +1,5 @@
 import { PopulationStats } from "@/components/features/PopulationStats";
-import { Trash2, Newspaper, Recycle, Building2 } from "lucide-react";
+import { Trash2, Newspaper, Recycle, Building2, Car } from "lucide-react";
 import Link from "next/link";
 
 // ISR: 1時間ごとに再生成
@@ -117,6 +117,28 @@ export default async function Home() {
             </div>
             <p className="text-gray-700 dark:text-gray-300">
               出雲市の財政状況を分かりやすくグラフで表示。歳入歳出、基金残高、職員数などを確認できます。
+            </p>
+          </Link>
+
+          <Link
+            href="/parking"
+            className="bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/50 dark:to-indigo-800/50 border-2 border-indigo-200 dark:border-indigo-700 rounded-xl p-8 hover:shadow-xl hover:scale-[1.02] transition-all group"
+          >
+            <div className="flex items-center mb-4">
+              <div className="bg-indigo-500 dark:bg-indigo-600 p-3 rounded-full mr-4 group-hover:rotate-12 transition-transform">
+                <Car size={32} className="text-white" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                  駐車場情報
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300">
+                  リアルタイム空き情報
+                </p>
+              </div>
+            </div>
+            <p className="text-gray-700 dark:text-gray-300">
+              出雲市内の駐車場情報をエリア別に確認。料金、収容台数、場所などの詳細情報を提供します。
             </p>
           </Link>
         </section>
