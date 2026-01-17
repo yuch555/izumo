@@ -167,7 +167,7 @@ async function scrapeParkingData(url: string, areaName: string): Promise<Parking
 }
 
 async function geocodeAddress(address: string): Promise<{ lat: number; lng: number } | null> {
-  const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+  const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
   if (!MAPBOX_TOKEN || !address) {
     return null;

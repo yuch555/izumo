@@ -25,10 +25,12 @@ interface ParkingMapProps {
   parkingLots: ParkingLot[];
 }
 
-const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || "";
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || "";
 
 export function ParkingMap({ parkingLots }: ParkingMapProps) {
-  const [selectedParking, setSelectedParking] = useState<ParkingLot | null>(null);
+  const [selectedParking, setSelectedParking] = useState<ParkingLot | null>(
+    null,
+  );
   const [viewState, setViewState] = useState({
     longitude: 132.7553,
     latitude: 35.3673,
@@ -54,7 +56,7 @@ export function ParkingMap({ parkingLots }: ParkingMapProps) {
           maxLng: parkingLots[0].location.lng,
           minLat: parkingLots[0].location.lat,
           maxLat: parkingLots[0].location.lat,
-        }
+        },
       );
 
       mapRef.current.fitBounds(
@@ -65,7 +67,7 @@ export function ParkingMap({ parkingLots }: ParkingMapProps) {
         {
           padding: 50,
           duration: 1000,
-        }
+        },
       );
     }
   }, [parkingLots]);
@@ -74,7 +76,8 @@ export function ParkingMap({ parkingLots }: ParkingMapProps) {
     return (
       <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
         <p className="text-yellow-800 dark:text-yellow-200">
-          Mapboxトークンが設定されていません。環境変数 NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN を設定してください。
+          Mapboxトークンが設定されていません。環境変数 NEXT_PUBLIC_MAPBOX_TOKEN
+          を設定してください。
         </p>
       </div>
     );
@@ -179,15 +182,17 @@ export function ParkingMap({ parkingLots }: ParkingMapProps) {
                         const trimmedLine = line.trim();
                         if (!trimmedLine) return null;
 
-                        const isMaxPrice = trimmedLine.includes('最大') || trimmedLine.includes('上限');
+                        const isMaxPrice =
+                          trimmedLine.includes("最大") ||
+                          trimmedLine.includes("上限");
 
                         return (
                           <div
                             key={index}
                             className={`text-xs p-1.5 rounded ${
                               isMaxPrice
-                                ? 'bg-green-50 text-green-700 font-medium'
-                                : 'bg-gray-50 text-gray-700'
+                                ? "bg-green-50 text-green-700 font-medium"
+                                : "bg-gray-50 text-gray-700"
                             }`}
                           >
                             {trimmedLine.length > 40
@@ -201,20 +206,22 @@ export function ParkingMap({ parkingLots }: ParkingMapProps) {
 
                 {/* 特徴タグ */}
                 <div className="flex flex-wrap gap-1 mt-2">
-                  {selectedParking.features.slice(0, 3).map((feature, index) => (
-                    <span
-                      key={index}
-                      className={`px-2 py-0.5 text-xs rounded-full ${
-                        feature === "無料"
-                          ? "bg-green-100 text-green-700"
-                          : feature === "24時間営業"
-                            ? "bg-purple-100 text-purple-700"
-                            : "bg-gray-100 text-gray-700"
-                      }`}
-                    >
-                      {feature}
-                    </span>
-                  ))}
+                  {selectedParking.features
+                    .slice(0, 3)
+                    .map((feature, index) => (
+                      <span
+                        key={index}
+                        className={`px-2 py-0.5 text-xs rounded-full ${
+                          feature === "無料"
+                            ? "bg-green-100 text-green-700"
+                            : feature === "24時間営業"
+                              ? "bg-purple-100 text-purple-700"
+                              : "bg-gray-100 text-gray-700"
+                        }`}
+                      >
+                        {feature}
+                      </span>
+                    ))}
                 </div>
 
                 {/* Googleマップリンク */}
