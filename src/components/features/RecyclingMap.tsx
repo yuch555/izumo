@@ -5,6 +5,8 @@ import Map, { Marker, Popup, useMap } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapboxLanguage from "@mapbox/mapbox-gl-language";
 import { Recycle, FileText, Milk, Beef, MapPin } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import CountUp from "react-countup";
 
 import {
   Select,
@@ -273,15 +275,27 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
       {/* リスト表示 */}
       <div className="space-y-3">
         <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100">
-          店舗一覧（{filteredStores.length}件）
+          店舗一覧（<CountUp end={filteredStores.length} duration={0.5} preserveValue />件）
         </h2>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {filteredStores.map((store, index) => (
-            <div
-              key={index}
-              className="p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700 cursor-pointer"
-              onClick={() => setSelectedStore(store)}
-            >
+          <AnimatePresence mode="popLayout">
+            {filteredStores.map((store, index) => (
+              <motion.div
+                key={`${store.store_name}-${store.region}-${index}`}
+                layout
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{
+                  duration: 0.3,
+                  delay: index * 0.05,
+                  layout: { duration: 0.3 }
+                }}
+              >
+                <div
+                  className="p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700 cursor-pointer"
+                  onClick={() => setSelectedStore(store)}
+                >
               <div className="flex items-start justify-between mb-2">
                 <h3 className="font-bold text-gray-800 dark:text-gray-100 text-lg">
                   {store.store_name}
@@ -337,7 +351,9 @@ export function RecyclingMap({ stores }: RecyclingMapProps) {
                 )}
               </div>
             </div>
-          ))}
+          </motion.div>
+        ))}
+          </AnimatePresence>
         </div>
       </div>
     </div>

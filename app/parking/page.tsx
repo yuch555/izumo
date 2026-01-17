@@ -1,10 +1,14 @@
 import { ParkingList } from "@/components/features/ParkingList";
+import { BackToHome } from "@/components/base/BackToHome";
 import { Suspense } from "react";
 
 export const metadata = {
   title: "駐車場空き情報 - 出雲市お役立ちWEBサイト",
   description: "出雲市内の駐車場のリアルタイム空き情報を確認できます",
 };
+
+// ISR: 10分ごとに再生成
+export const revalidate = 600;
 
 export default function ParkingPage() {
   return (
@@ -29,6 +33,7 @@ export default function ParkingPage() {
           <ParkingList />
         </Suspense>
       </div>
+      <BackToHome />
     </main>
   );
 }

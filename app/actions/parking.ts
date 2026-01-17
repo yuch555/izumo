@@ -1,4 +1,5 @@
-import { NextResponse } from 'next/server';
+'use server';
+
 import * as cheerio from 'cheerio';
 
 // iPosLandのURLリスト
@@ -19,7 +20,7 @@ const AREA_MAP: Record<string, string> = {
   '%e5%a4%a7%e7%a4%be%e7%94%ba%e4%bf%ae%e7%90%86%e5%85%8d': '大社町修理免'
 };
 
-interface ParkingLot {
+export interface ParkingLot {
   id: number;
   name: string;
   totalSpaces: number;
@@ -35,6 +36,14 @@ interface ParkingLot {
   updatedAt: string;
 }
 
+export interface ParkingData {
+  success: boolean;
+  data: ParkingLot[];
+  timestamp: string;
+  areas: string[];
+  count: number;
+}
+
 async function scrapeParkingData(url: string, areaName: string): Promise<ParkingLot[]> {
   try {
     const response = await fetch(url);
@@ -43,29 +52,27 @@ async function scrapeParkingData(url: string, areaName: string): Promise<Parking
 
     const parkingLots: ParkingLot[] = [];
 
-    // テーブル行を探す（様々なセレクタを試す）
     const rows = $('tr').filter(function() {
       const text = $(this).text();
       return text.includes('駐車場') || text.includes('パーク') || text.includes('台');
     });
 
-    rows.each((index, element) => {
+    const rowsArray = rows.toArray();
+    for (let index = 0; index < rowsArray.length; index++) {
+      const element = rowsArray[index];
       const $row = $(element);
       const cells = $row.find('td');
 
-      if (cells.length === 0) return;
+      if (cells.length === 0) continue;
 
-      // セルからテキストを抽出
       const allText = $row.text();
 
-      // 駐車場名を抽出
       let name = '';
       const nameLink = $row.find('a').first();
       if (nameLink.length > 0) {
         name = nameLink.text().trim();
       }
 
-      // 住所を抽出
       let address = '';
       cells.each((_i, cell) => {
         const text = $(cell).text().trim();
@@ -74,19 +81,15 @@ async function scrapeParkingData(url: string, areaName: string): Promise<Parking
         }
       });
 
-      // 収容台数を抽出（複数のパターンを試す）
       let totalSpaces = 0;
-      // パターン1: "36台" のような形式
       const capacityMatch1 = allText.match(/(\d+)\s*台/);
       if (capacityMatch1) {
         totalSpaces = parseInt(capacityMatch1[1]);
       }
-      // パターン2: "収容台数：36" のような形式
       const capacityMatch2 = allText.match(/収容台数[：:]\s*(\d+)/);
       if (capacityMatch2) {
         totalSpaces = parseInt(capacityMatch2[1]);
       }
-      // パターン3: セル内に数字だけの場合
       if (totalSpaces === 0) {
         cells.each((_i, cell) => {
           const text = $(cell).text().trim();
@@ -97,7 +100,6 @@ async function scrapeParkingData(url: string, areaName: string): Promise<Parking
         });
       }
 
-      // 料金情報を抽出
       let pricing = '';
       cells.each((_i, cell) => {
         const text = $(cell).text().trim();
@@ -106,9 +108,8 @@ async function scrapeParkingData(url: string, areaName: string): Promise<Parking
         }
       });
 
-      // 有効なデータがある場合のみ追加
       if (name && (address || totalSpaces > 0 || pricing)) {
-        const location = estimateLocation(address, areaName);
+        const location = await estimateLocation(address, areaName);
         const features = extractFeatures(pricing, name);
 
         parkingLots.push({
@@ -124,12 +125,12 @@ async function scrapeParkingData(url: string, areaName: string): Promise<Parking
           updatedAt: new Date().toISOString()
         });
       }
-    });
+    }
 
-    // データが取得できなかった場合はより広範囲に検索
     if (parkingLots.length === 0) {
-      // リンクテキストから駐車場名を抽出
-      $('a').each((index, element) => {
+      const links = $('a').toArray();
+      for (let index = 0; index < links.length; index++) {
+        const element = links[index];
         const text = $(element).text().trim();
         if (text.includes('駐車場') || text.includes('パーク') || text.includes('プラザ')) {
           const parent = $(element).closest('tr, div');
@@ -139,7 +140,7 @@ async function scrapeParkingData(url: string, areaName: string): Promise<Parking
           const totalSpaces = capacityMatch ? parseInt(capacityMatch[1]) : 0;
 
           if (totalSpaces > 0 || text.length > 0) {
-            const location = estimateLocation('', areaName);
+            const location = await estimateLocation('', areaName);
 
             parkingLots.push({
               id: Date.now() + index,
@@ -155,7 +156,7 @@ async function scrapeParkingData(url: string, areaName: string): Promise<Parking
             });
           }
         }
-      });
+      }
     }
 
     return parkingLots;
@@ -165,8 +166,39 @@ async function scrapeParkingData(url: string, areaName: string): Promise<Parking
   }
 }
 
-function estimateLocation(address: string, area: string): { lat: number; lng: number } {
-  // エリアごとの基準座標
+async function geocodeAddress(address: string): Promise<{ lat: number; lng: number } | null> {
+  const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+
+  if (!MAPBOX_TOKEN || !address) {
+    return null;
+  }
+
+  try {
+    const encodedAddress = encodeURIComponent(address);
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodedAddress}.json?access_token=${MAPBOX_TOKEN}&country=JP&proximity=132.7553,35.3673&limit=1`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (data.features && data.features.length > 0) {
+      const [lng, lat] = data.features[0].center;
+      return { lat, lng };
+    }
+  } catch (error) {
+    console.error('Geocoding error:', error);
+  }
+
+  return null;
+}
+
+async function estimateLocation(address: string, area: string): Promise<{ lat: number; lng: number }> {
+  if (address && address.includes('島根県')) {
+    const coords = await geocodeAddress(address);
+    if (coords) {
+      return coords;
+    }
+  }
+
   const baseCoordinates: Record<string, { lat: number; lng: number }> = {
     '駅南町': { lat: 35.3591, lng: 132.7684 },
     '駅北町': { lat: 35.3605, lng: 132.7690 },
@@ -177,11 +209,19 @@ function estimateLocation(address: string, area: string): { lat: number; lng: nu
 
   const base = baseCoordinates[area] || { lat: 35.3673, lng: 132.7553 };
 
-  // ランダムに少しずらす（実際の座標取得までの仮対応）
-  return {
-    lat: base.lat + (Math.random() - 0.5) * 0.005,
-    lng: base.lng + (Math.random() - 0.5) * 0.005
-  };
+  if (address) {
+    const numberMatch = address.match(/(\d+)-(\d+)/);
+    if (numberMatch) {
+      const offset1 = (parseInt(numberMatch[1]) % 100) * 0.00001;
+      const offset2 = (parseInt(numberMatch[2]) % 100) * 0.00001;
+      return {
+        lat: base.lat + offset1,
+        lng: base.lng + offset2
+      };
+    }
+  }
+
+  return base;
 }
 
 function extractFeatures(pricing: string, name: string): string[] {
@@ -212,11 +252,10 @@ function extractFeatures(pricing: string, name: string): string[] {
   return features;
 }
 
-export async function GET() {
+export async function getParkingData(): Promise<ParkingData> {
   try {
     const allParkingData: ParkingLot[] = [];
 
-    // 全URLからデータをスクレイピング
     for (const url of PARKING_URLS) {
       const areaKey = url.split('choiki=')[1];
       const areaName = AREA_MAP[areaKey] || '不明';
@@ -225,28 +264,19 @@ export async function GET() {
       allParkingData.push(...data);
     }
 
-    // IDを振り直す
     allParkingData.forEach((lot, index) => {
       lot.id = index + 1;
     });
 
-    return NextResponse.json({
+    return {
       success: true,
       data: allParkingData,
       timestamp: new Date().toISOString(),
       areas: Object.values(AREA_MAP),
       count: allParkingData.length
-    });
+    };
   } catch (error) {
     console.error('Error fetching parking data:', error);
-
-    return NextResponse.json({
-      success: false,
-      error: 'Failed to fetch parking data',
-      timestamp: new Date().toISOString()
-    }, { status: 500 });
+    throw new Error('Failed to fetch parking data');
   }
 }
-
-// キャッシュ設定（5分間）
-export const revalidate = 300;
