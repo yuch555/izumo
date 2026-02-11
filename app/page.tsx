@@ -1,152 +1,200 @@
-import { PopulationStats } from "@/components/features/PopulationStats";
-import { Trash2, Newspaper, Recycle, Building2, Car } from "lucide-react";
+import {
+  Trash2,
+  Newspaper,
+  Recycle,
+  Building2,
+  Car,
+  Users,
+  ExternalLink,
+  Database,
+  ChevronRight,
+} from "lucide-react";
 import Link from "next/link";
+import { HeroSlider } from "@/components/features/HeroSlider";
 
 // ISR: 1時間ごとに再生成
 export const revalidate = 3600;
 
 export default async function Home() {
   return (
-    <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <section className="mb-12 text-center">
-          <h1
-            className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4"
-            style={{ wordBreak: "auto-phrase" }}
-          >
-            出雲市お役立ちWEBサイト
-          </h1>
-          <p
-            className="text-lg text-gray-600 dark:text-gray-300 mb-2"
-            style={{ wordBreak: "auto-phrase" }}
-          >
-            出雲市での生活をもっと便利に。
-          </p>
-          <p
-            className="text-lg text-gray-600 dark:text-gray-300 mb-6"
-            style={{ wordBreak: "auto-phrase" }}
-          >
-            最新のお知らせ情報をかんたんに検索できます。
-          </p>
-        </section>
+    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors">
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        {/* ヒーロー画像スライダー */}
+        <HeroSlider />
 
-        {/* 主要機能カード */}
-        <section className="mb-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* 6つのグリッドカード */}
+        <section className="mb-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+          {/* 住民統計 */}
+          <Link
+            href="/statistics"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-700 transition-all group"
+          >
+            <div className="bg-blue-100 dark:bg-blue-900/50 w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <Users className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+            </div>
+            <h2 className="font-bold text-gray-900 dark:text-gray-100 mb-1">
+              住民統計
+            </h2>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              人口・世帯数データ
+            </p>
+          </Link>
+
+          {/* 駐車場 */}
+          <Link
+            href="/parking"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:border-indigo-200 dark:hover:border-indigo-700 transition-all group"
+          >
+            <div className="bg-indigo-100 dark:bg-indigo-900/50 w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <Car className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+            </div>
+            <h2 className="font-bold text-gray-900 dark:text-gray-100 mb-1">
+              駐車場
+            </h2>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              リアルタイム空き情報
+            </p>
+          </Link>
+
+          {/* ゴミ分別 */}
           <Link
             href="/garbage"
-            className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/50 dark:to-green-800/50 border-2 border-green-200 dark:border-green-700 rounded-xl p-8 hover:shadow-xl hover:scale-[1.02] transition-all group"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:border-green-200 dark:hover:border-green-700 transition-all group"
           >
-            <div className="flex items-center mb-4">
-              <div className="bg-green-500 dark:bg-green-600 p-3 rounded-full mr-4 group-hover:rotate-12 transition-transform">
-                <Trash2 size={32} className="text-white" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                  ゴミ分別検索
-                </h2>
-                <p className="text-gray-600 dark:text-gray-300">
-                  品目から簡単検索
-                </p>
-              </div>
+            <div className="bg-green-100 dark:bg-green-900/50 w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <Trash2 className="w-6 h-6 text-green-600 dark:text-green-400" />
             </div>
-            <p className="text-gray-700 dark:text-gray-300">
-              ゴミの分け方・出し方を簡単に検索できます。50音順での検索や分別区分での絞り込みが可能です。
+            <h2 className="font-bold text-gray-900 dark:text-gray-100 mb-1">
+              ゴミ分別
+            </h2>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              品目から簡単検索
             </p>
           </Link>
 
+          {/* リサイクル */}
           <Link
             href="/recycling"
-            className="bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900/50 dark:to-cyan-800/50 border-2 border-cyan-200 dark:border-cyan-700 rounded-xl p-8 hover:shadow-xl hover:scale-[1.02] transition-all group"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:border-cyan-200 dark:hover:border-cyan-700 transition-all group"
           >
-            <div className="flex items-center mb-4">
-              <div className="bg-cyan-500 dark:bg-cyan-600 p-3 rounded-full mr-4 group-hover:rotate-12 transition-transform">
-                <Recycle size={32} className="text-white" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                  リサイクルステーション
-                </h2>
-                <p className="text-gray-600 dark:text-gray-300">
-                  店舗を地図から探す
-                </p>
-              </div>
+            <div className="bg-cyan-100 dark:bg-cyan-900/50 w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <Recycle className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
             </div>
-            <p className="text-gray-700 dark:text-gray-300">
-              スーパーや店舗のリサイクルステーションを地図から検索。紙類・プラスチック・缶びんなど。
+            <h2 className="font-bold text-gray-900 dark:text-gray-100 mb-1">
+              リサイクル
+            </h2>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              ステーション検索
             </p>
           </Link>
 
+          {/* お知らせ */}
           <Link
             href="/news"
-            className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/50 dark:to-blue-800/50 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-8 hover:shadow-xl hover:scale-[1.02] transition-all group"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:border-orange-200 dark:hover:border-orange-700 transition-all group"
           >
-            <div className="flex items-center mb-4">
-              <div className="bg-blue-500 dark:bg-blue-600 p-3 rounded-full mr-4 group-hover:rotate-12 transition-transform">
-                <Newspaper size={32} className="text-white" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                  お知らせ一覧
-                </h2>
-                <p className="text-gray-600 dark:text-gray-300">
-                  最新情報をチェック
-                </p>
-              </div>
+            <div className="bg-orange-100 dark:bg-orange-900/50 w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <Newspaper className="w-6 h-6 text-orange-600 dark:text-orange-400" />
             </div>
-            <p className="text-gray-700 dark:text-gray-300">
-              出雲市からの最新のお知らせや重要な情報を確認できます。カテゴリー別に検索も可能です。
+            <h2 className="font-bold text-gray-900 dark:text-gray-100 mb-1">
+              お知らせ
+            </h2>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              最新情報をチェック
             </p>
           </Link>
 
+          {/* 公共施設 */}
           <Link
-            href="/fiscal"
-            className="bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/50 dark:to-emerald-800/50 border-2 border-emerald-200 dark:border-emerald-700 rounded-xl p-8 hover:shadow-xl hover:scale-[1.02] transition-all group"
+            href="/facilities"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:border-purple-200 dark:hover:border-purple-700 transition-all group"
           >
-            <div className="flex items-center mb-4">
-              <div className="bg-emerald-500 dark:bg-emerald-600 p-3 rounded-full mr-4 group-hover:rotate-12 transition-transform">
-                <Building2 size={32} className="text-white" />
+            <div className="bg-purple-100 dark:bg-purple-900/50 w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <Building2 className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+            </div>
+            <h2 className="font-bold text-gray-900 dark:text-gray-100 mb-1">
+              公共施設
+            </h2>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              施設一覧を検索
+            </p>
+          </Link>
+        </section>
+
+        {/* 下部リンクカード */}
+        <section className="space-y-3">
+          {/* 出雲市公式サイト */}
+          <a
+            href="https://www.city.izumo.shimane.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between bg-white dark:bg-gray-800 rounded-2xl p-4 border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-gray-200 dark:hover:border-gray-600 transition-all group"
+          >
+            <div className="flex items-center gap-3">
+              <div className="bg-gray-100 dark:bg-gray-700 w-10 h-10 rounded-xl flex items-center justify-center">
+                <ExternalLink className="w-5 h-5 text-gray-600 dark:text-gray-400" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
+                  出雲市公式サイト
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  公式情報はこちら
+                </p>
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-gray-400 group-hover:translate-x-1 transition-transform" />
+          </a>
+
+          {/* オープンデータカタログ */}
+          <a
+            href="https://shimane-opendata.jp/datasets?organization_id=10"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between bg-white dark:bg-gray-800 rounded-2xl p-4 border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-gray-200 dark:hover:border-gray-600 transition-all group"
+          >
+            <div className="flex items-center gap-3">
+              <div className="bg-purple-100 dark:bg-purple-900/50 w-10 h-10 rounded-xl flex items-center justify-center">
+                <Database className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
+                  オープンデータカタログ
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  データ利活用に
+                </p>
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-gray-400 group-hover:translate-x-1 transition-transform" />
+          </a>
+
+          {/* 財政状況 */}
+          <Link
+            href="/fiscal"
+            className="flex items-center justify-between bg-white dark:bg-gray-800 rounded-2xl p-4 border border-gray-100 dark:border-gray-700 hover:shadow-md hover:border-gray-200 dark:hover:border-gray-600 transition-all group"
+          >
+            <div className="flex items-center gap-3">
+              <div className="bg-emerald-100 dark:bg-emerald-900/50 w-10 h-10 rounded-xl flex items-center justify-center">
+                <Building2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
                   財政状況
-                </h2>
-                <p className="text-gray-600 dark:text-gray-300">
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
                   予算・決算を可視化
                 </p>
               </div>
             </div>
-            <p className="text-gray-700 dark:text-gray-300">
-              出雲市の財政状況を分かりやすくグラフで表示。歳入歳出、基金残高、職員数などを確認できます。
-            </p>
-          </Link>
-
-          <Link
-            href="/parking"
-            className="bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/50 dark:to-indigo-800/50 border-2 border-indigo-200 dark:border-indigo-700 rounded-xl p-8 hover:shadow-xl hover:scale-[1.02] transition-all group"
-          >
-            <div className="flex items-center mb-4">
-              <div className="bg-indigo-500 dark:bg-indigo-600 p-3 rounded-full mr-4 group-hover:rotate-12 transition-transform">
-                <Car size={32} className="text-white" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                  駐車場情報
-                </h2>
-                <p className="text-gray-600 dark:text-gray-300">
-                  リアルタイム空き情報
-                </p>
-              </div>
-            </div>
-            <p className="text-gray-700 dark:text-gray-300">
-              出雲市内の駐車場情報をエリア別に確認。料金、収容台数、場所などの詳細情報を提供します。
-            </p>
+            <ChevronRight className="w-5 h-5 text-gray-400 group-hover:translate-x-1 transition-transform" />
           </Link>
         </section>
 
-        {/* 住民統計セクション */}
-        <section className="mb-12">
-          <PopulationStats />
-        </section>
+        {/* フッター */}
+        <footer className="mt-12 text-center text-xs text-gray-400 dark:text-gray-500">
+          <p>本サイトは出雲市オープンデータを活用した非公式サイトです</p>
+        </footer>
       </div>
     </main>
   );
