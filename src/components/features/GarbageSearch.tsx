@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import {
   Search,
   Filter,
@@ -9,6 +9,7 @@ import {
   BanIcon,
   Package,
   Lightbulb,
+  Loader2,
 } from "lucide-react";
 import { GarbageItem } from "~/lib/garbage";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -17,6 +18,8 @@ import { Input } from "@/components/ui/input";
 import { motion, AnimatePresence } from "framer-motion";
 import CountUp from "react-countup";
 
+const ITEMS_PER_PAGE = 20;
+
 interface GarbageSearchProps {
   garbageItems: GarbageItem[];
 }
@@ -24,6 +27,9 @@ interface GarbageSearchProps {
 export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("すべて");
+  const [displayCount, setDisplayCount] = useState(ITEMS_PER_PAGE);
+  const [isLoading, setIsLoading] = useState(false);
+  const loadMoreRef = useRef<HTMLDivElement>(null);
 
   const filteredItems = useMemo(() => {
     let items = garbageItems;
@@ -50,6 +56,47 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
 
     return items;
   }, [garbageItems, searchQuery, selectedCategory]);
+
+  // 表示するアイテム
+  const displayedItems = useMemo(() => {
+    return filteredItems.slice(0, displayCount);
+  }, [filteredItems, displayCount]);
+
+  const hasMore = displayCount < filteredItems.length;
+
+  // フィルター変更時に表示件数をリセット
+  useEffect(() => {
+    setDisplayCount(ITEMS_PER_PAGE);
+  }, [searchQuery, selectedCategory]);
+
+  // 無限スクロール用の Intersection Observer
+  const loadMore = useCallback(() => {
+    if (isLoading || !hasMore) return;
+
+    setIsLoading(true);
+    // 少し遅延を入れてスムーズな体験に
+    setTimeout(() => {
+      setDisplayCount((prev) => prev + ITEMS_PER_PAGE);
+      setIsLoading(false);
+    }, 300);
+  }, [isLoading, hasMore]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadMore();
+        }
+      },
+      { threshold: 0.1, rootMargin: "100px" }
+    );
+
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [loadMore]);
 
   const getCategoryIcon = (category: string) => {
     if (category === "禁止") {
@@ -172,7 +219,7 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
               </Card>
             </motion.div>
           ) : (
-            filteredItems.map((item, index) => (
+            displayedItems.map((item, index) => (
               <motion.div
                 key={`${item.name}-${index}`}
                 layout
@@ -181,7 +228,7 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{
                   duration: 0.3,
-                  delay: index * 0.03,
+                  delay: Math.min(index * 0.03, 0.3),
                   layout: { duration: 0.3 }
                 }}
               >
@@ -222,6 +269,40 @@ export function GarbageSearch({ garbageItems }: GarbageSearchProps) {
             ))
           )}
         </AnimatePresence>
+
+        {/* 無限スクロール用のローディングインジケーター */}
+        {hasMore && (
+          <div
+            ref={loadMoreRef}
+            className="flex justify-center items-center py-8"
+          >
+            {isLoading ? (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="flex items-center gap-2 text-muted-foreground"
+              >
+                <Loader2 className="animate-spin" size={20} />
+                <span>読み込み中...</span>
+              </motion.div>
+            ) : (
+              <span className="text-muted-foreground text-sm">
+                スクロールで続きを表示
+              </span>
+            )}
+          </div>
+        )}
+
+        {/* 全件表示完了メッセージ */}
+        {!hasMore && filteredItems.length > ITEMS_PER_PAGE && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-4 text-muted-foreground text-sm"
+          >
+            すべての品目を表示しました
+          </motion.div>
+        )}
       </div>
     </div>
   );
