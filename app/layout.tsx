@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/base/Header";
 import { Footer } from "@/components/base/Footer";
+import { ViewTransitionProvider } from "@/components/base/ViewTransitionProvider";
 
 export const metadata: Metadata = {
   title: "出雲市お役立ちWEBサイト",
@@ -43,7 +44,9 @@ export default function RootLayout({
       </head>
       <body>
         <Header />
-        <main>{children}</main>
+        <ViewTransitionProvider>
+          <main>{children}</main>
+        </ViewTransitionProvider>
         <Footer />
       </body>
     </html>

@@ -198,3 +198,71 @@ main {
 .mapboxgl-popup-close-button:hover {
   background-color: #f3f4f6 !important;
 }
+
+/* View Transition アニメーション */
+::view-transition-old(root) {
+  animation: fade-out 0.2s ease-out both;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.2s ease-in both;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* スライドアニメーション（オプション） */
+::view-transition-old(page-content) {
+  animation: slide-out-left 0.3s ease-out both;
+}
+
+::view-transition-new(page-content) {
+  animation: slide-in-right 0.3s ease-in both;
+}
+
+@keyframes slide-out-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* アクセシビリティ: モーション軽減設定を尊重 */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(page-content),
+  ::view-transition-new(page-content) {
+    animation: none;
+  }
+}
